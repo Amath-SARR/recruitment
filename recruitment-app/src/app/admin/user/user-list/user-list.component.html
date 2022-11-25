@@ -1,0 +1,302 @@
+<section class="ampHeader3 video-with-lightbox cid-sV49uhuVRE" id="ampHeader3-31">
+  <!-- Overlay -->
+  <div class="mbr-overlay"></div>
+  <!-- Container -->
+  <div class="container">
+    <div class="mbr-row mbr-jc-c">
+      <!-- Title -->
+      <div class="title-block mbr-col-sm-6 mbr-col-md-4 align-center">
+        <div class="btn__block">
+          <div class="align-left mbr-section-btn"><a class="btn btn-lg btn-primary display-4"
+              (click)="showAjoutForm()">Ajouter un
+              administrateur</a></div>
+        </div>
+      </div>
+
+      <div class="title-block mbr-col-sm-6 mbr-col-md-4 align-center">
+        <div class="btn__block">
+          <div class="align-left mbr-section-btn"><a class="btn btn-lg btn-primary display-4"
+              (click)="verifyAllChecked()">Contacter mes utilisateurs</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form cid-sVgt61NJWH" id="formbuilder-3f" *ngIf="formVisible">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto mbr-form">
+        <!--Formbuilder Form-->
+        <form #newAdminForm="ngForm" method="POST" class="mbr-form" id="myFormformbuilder3f">
+          <br>
+          <div class="dragArea mbr-row">
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <h4 class="mbr-fonts-style mbr-fonts-style mbr-fonts-style display-5">Nouvel administrateur</h4>
+              <hr>
+            </div>
+            <div data-for="form[data][0][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][0][1]-formbuilder-3f" class="form-control-label mbr-fonts-style display-7">Nom
+                complet *</label>
+              <input type="hidden" name="form[data][0][0]" value="name" id="form[data][0][0]-formbuilder-3f">
+              <input [(ngModel)]="userModel.name"
+                amp-value="myStateformbuilder3f.formdata01formbuilder3f.stateformdata01formbuilder3f"
+                on="change:AMP.setState({myStateformbuilder3f:{formdata01formbuilder3f:{valueformdata01formbuilder3f: event.value}}})"
+                type="text" name="form[data][0][1]" placeholder="Prénoms &amp; Nom" data-form-field="name"
+                required="required" class="field-input display-7" value="" id="form[data][0][1]-formbuilder-3f">
+              <span>{{errors?.name}}</span>
+            </div>
+            <div data-for="form[data][1][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][1][1]-formbuilder-3f"
+                class="form-control-label mbr-fonts-style display-7">Profession
+                *</label>
+              <input type="hidden" name="form[data][1][0]" value="profession" id="form[data][1][0]-formbuilder-3f">
+              <input [(ngModel)]="userModel.profession"
+                amp-value="myStateformbuilder3f.formdata11formbuilder3f.stateformdata11formbuilder3f"
+                on="change:AMP.setState({myStateformbuilder3f:{formdata11formbuilder3f:{valueformdata11formbuilder3f: event.value}}})"
+                type="text" name="form[data][1][1]" data-form-field="profession" required="required"
+                class="field-input display-7" value="" id="form[data][1][1]-formbuilder-3f">
+            </div>
+            <div data-for="form[data][2][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][2][1]-formbuilder-3f"
+                class="form-control-label mbr-fonts-style display-7">Téléphone *</label>
+              <input type="hidden" name="form[data][2][0]" value="telephone" id="form[data][2][0]-formbuilder-3f">
+              <input [(ngModel)]="userModel.telephone"
+                amp-value="myStateformbuilder3f.formdata21formbuilder3f.stateformdata21formbuilder3f"
+                on="change:AMP.setState({myStateformbuilder3f:{formdata21formbuilder3f:{valueformdata21formbuilder3f: event.value}}})"
+                type="text" name="form[data][2][1]" placeholder="+221" data-form-field="telephone"
+                class="field-input display-7" value="+221" id="form[data][2][1]-formbuilder-3f">
+            </div>
+            <div data-for="form[data][3][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][3][1]-formbuilder-3f" class="form-control-label mbr-fonts-style display-7">Email
+                *</label>
+              <input type="hidden" name="form[data][3][0]" value="email" id="form[data][3][0]-formbuilder-3f">
+              <input [(ngModel)]="userModel.email"
+                amp-value="myStateformbuilder3f.formdata31formbuilder3f.stateformdata31formbuilder3f"
+                on="change:AMP.setState({myStateformbuilder3f:{formdata31formbuilder3f:{valueformdata31formbuilder3f: event.value}}})"
+                type="email" name="form[data][3][1]" placeholder="test@email.com" data-form-field="email"
+                required="required" class="field-input display-7" value="" id="form[data][3][1]-formbuilder-3f">
+            </div>
+            <div data-for="form[data][3][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="photo">Photo de profil de l'utilisateur</label>
+              <input (change)="handleFileSelect($event)" accept="image/*" type="file" name="photo" id="photo">
+            </div>
+            <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12">
+              <button nz-button [nzLoading]="isUserCreating" type="button" (click)="save()"
+                class="btn btn-primary display-7">Enregistrer</button>
+            </div>
+          </div>
+        </form>
+        <!--Formbuilder Form-->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials3 cid-sV49b5gq6v" id="testimonials3-30">
+  <div class="container">
+    <div class="mbr-row">
+      <div class="mbr-col-md-12">
+        <h1 class="mbr-section-title mbr-fonts-style mbr-bold mbr-black display-5">
+          Liste des utilisateurs</h1>
+        <br>
+        <nz-card style="width:100%;" nzTitle="Filtrer les utilisateurs">
+
+          <form #testFilter="ngForm">
+            <div class="mbr-row">
+              <div class="mbr-col-lg-5 mbr-col-sm-5">
+                <nz-select [nzMaxTagCount]="3" nzMode="multiple" nzPlaceHolder="Type d'utilisateurs" name="type"
+                  (ngModelChange)="filterUser()" nzAllowClear [(ngModel)]="filterObj.type">
+                  <ng-container *ngFor="let item of filterUserTypes">
+                    <nz-option [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
+                  </ng-container>
+                </nz-select>
+              </div>
+              <div class="mbr-col-lg-3 mbr-col-sm-3">
+                <nz-select [nzMaxTagCount]="3" nzMode="multiple" nzPlaceHolder="Compte actif ou inactif" name="type"
+                  (ngModelChange)="filterUser()" nzAllowClear [(ngModel)]="filterObj.enabled">
+                  <ng-container *ngFor="let item of filterComptes">
+                    <nz-option [nzLabel]="item.name" [nzValue]="item.value"></nz-option>
+                  </ng-container>
+                </nz-select>
+              </div>
+              <div class="mbr-col-lg-4 mbr-col-sm-4">
+                <nz-range-picker [(ngModel)]="dateRange" name="dateRange" (ngModelChange)="filterUser()">
+                </nz-range-picker>
+              </div>
+            </div>
+          </form>
+          <div class="mbr-row">
+            <div class="mbr-col-lg-6 mbr-col-sm-12">
+              <input nz-input placeholder="Rechercher..." [(ngModel)]="searchField" />
+            </div>
+          </div>
+        </nz-card>
+      </div>
+    </div>
+    <hr>
+    <div class="mbr-row">
+      <div class="mbr-col-md-12">
+        <label nz-checkbox [(ngModel)]="allChecked" (ngModelChange)="updateAllChecked()"
+          [nzIndeterminate]="indeterminate">
+          Tout sélectionner
+        </label>
+      </div>
+      <div *ngFor="let user of users|filterBy: filterFields: searchField" class="mbr-col-lg-4 mbr-col-md-12">
+        <div class="card">
+
+          <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="updateSingleChecked(user)">
+            <label nz-checkbox [ngModel]="allChecked" nzValue="{{user.email}}" style="float: right;"></label>
+          </nz-checkbox-wrapper>
+
+          <h2 class="mbr-fonts-style title display-4">{{user.name}} <span
+              style="background-color: #FF6D00; color: white; border-radius: 3px; padding: 2px 4.5px">
+              {{user.type}}</span>
+          </h2>
+          <h3 class="mbr-fonts-style subtitle display-4">{{user.profession}}</h3>
+          <h3 class="mbr-fonts-style mbr-text display-6">{{user.presentation}}</h3>
+          <h3 class="mbr-fonts-style mbr-text display-6"><a href="tel:{{user.telephone}}">{{user.telephone}}</a></h3>
+          <h3 class="mbr-fonts-style mbr-text display-6"><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
+          <h3 class="mbr-fonts-style mbr-text display-6">Créé le {{user.created_at | date:'dd LLLL YYYY à
+            HH:mm:ss':'+0200':'fr'}}
+          </h3>
+          <ng-container *ngIf="user.enabled;else disabled">
+            <h3 class="mbr-fonts-style mbr-text display-6">
+              <span style="background-color: #4CAF50; color: white; border-radius: 3px; padding: 2px 4.5px">
+                Actif
+              </span>
+            </h3>
+          </ng-container>
+          <ng-template #disabled>
+            <h3 class="mbr-fonts-style mbr-text display-6">
+              <span style="background-color: #F44336; color: white; border-radius: 3px; padding: 2px 4.5px">
+                Inactif
+              </span>
+            </h3>
+          </ng-template>
+          <br>
+          <div nz-row>
+            <button (click)="showModalEdit(user)" nz-col nzSpan="3" nz-button
+              style="background-color: #FFD600; color: black; border-radius: 5px;"><i nz-icon nzType="edit"
+                nzTheme="outline"></i></button>
+            <!--  -->
+            <ng-container *ngIf="currentUser.email != user.email">
+              <button style="border-radius: 5px;" nz-col nzSpan="3" nzOffset="1" nz-button nzDanger nzType="primary"><i
+                  nz-icon nzType="delete" nzTheme="outline" (click)="showDeleteConfirm(user)"></i></button>
+            </ng-container>
+          </div>
+          <ng-container *ngIf="currentUser.email === user.email">
+            <div nz-row nzJustify="end">
+              <span nz-col
+                style="background-color: #1C4A1E; color: white; border-radius: 5px; padding: 1px 6px">Administrateur
+                connecté</span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="mbr-col-lg-12">
+        <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+          (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)"
+          [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+        </nz-pagination>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nz-modal [nzStyle]="{ bottom: '150px' }" [(nzVisible)]="modalVisible" [nzTitle]="nzTitle"
+  (nzOnCancel)="closeEditModal()" (nzOnOk)="update(userUpdate)" nzOkText="Mettre à jour">
+  <ng-container *nzModalContent>
+    <form method="POST" class="mbr-form" name="registerForm" #registerForm="ngForm" data-form-title="registerForm"
+      id="myFormampHeader71h">
+      <div class="dragArea mbr-form-row">
+        <div data-for="form[data][0][1]" class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-6 field ">
+          <label for="form[data][0][1]-ampHeader7-1h" class="form-control-label mbr-fonts-style display-7">Nom
+            complet *</label>
+          <input type="hidden" name="form[data][0][0]" value="name" id="form[data][0][0]-ampHeader7-1h"
+            data-form-field="">
+          <input [(ngModel)]="userUpdate.name"
+            on="change:AMP.setState({myStateampHeader71h:{formdata01ampHeader71h:{valueformdata01ampHeader71h: event.value}}})"
+            type="text" name="form[data][0][1]" placeholder="Nom complet" data-form-field="name" required="required"
+            class="field-input display-7" value="" id="form[data][0][1]-ampHeader7-1h">
+        </div>
+        <div data-for="form[data][1][1]" class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-6 field ">
+          <label for="form[data][1][1]-ampHeader7-1h" class="form-control-label mbr-fonts-style display-7">Téléphone
+            *</label>
+          <input type="hidden" name="form[data][1][0]" value="telephone" id="form[data][1][0]-ampHeader7-1h"
+            data-form-field="">
+          <input [(ngModel)]="userUpdate.telephone"
+            on="change:AMP.setState({myStateampHeader71h:{formdata11ampHeader71h:{valueformdata11ampHeader71h: event.value}}})"
+            type="text" name="form[data][1][1]" placeholder="+221" data-form-field="telephone" required="required"
+            class="field-input display-7" value="+221" id="form[data][1][1]-ampHeader7-1h">
+        </div>
+        <div data-for="form[data][3][1]" class="mbr-col field">
+          <label for="form[data][3][1]-ampHeader7-1h" class="form-control-label mbr-fonts-style display-7">Profession
+            *</label>
+          <input type="hidden" name="form[data][3][0]" value="profession" id="form[data][3][0]-ampHeader7-1h"
+            data-form-field="">
+          <input [(ngModel)]="userUpdate.profession"
+            on="change:AMP.setState({myStateampHeader71h:{formdata31ampHeader71h:{valueformdata31ampHeader71h: event.value}}})"
+            type="text" name="form[data][3][1]" placeholder="Profession" data-form-field="profession"
+            required="required" class="field-input display-7" value="" id="form[data][3][1]-ampHeader7-1h">
+        </div>
+        <div data-for="form[data][4][1]" class="mbr-col-md-12 mbr-col-sm-12 text-field field ">
+          <label for="form[data][4][1]-ampHeader7-1h"
+            class="form-control-label mbr-fonts-style display-7">Présentation</label>
+          <input type="hidden" name="form[data][4][0]" value="presentation" id="form[data][4][0]-ampHeader7-1h"
+            data-form-field="">
+          <textarea [(ngModel)]="userUpdate.presentation"
+            on="change:AMP.setState({myStateampHeader71h:{formdata41ampHeader71h:{valueformdata41ampHeader71h: event.value}}})"
+            name="form[data][4][1]" placeholder="Présentation" data-form-field="presentation"
+            class="field-input2 display-7" id="form[data][4][1]-ampHeader7-1h"></textarea>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="isContactUserForm" [nzOkLoading]="isUserMessageSending" (nzOnCancel)="closeContactModalForm()"
+  (nzOnOk)="sendUserMessage()" nzOkText="Envoyer">
+  <ng-container *nzModalContent>
+    <form method="POST" class="mbr-form" id="myFormformbuilder4l">
+      <div class="dragArea mbr-row">
+        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+          <h4 class="mbr-fonts-style mbr-fonts-style mbr-fonts-style display-5">Message <i nz-icon nzType="mail"
+              nzTheme="outline"></i></h4>
+        </div>
+        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+          <hr>
+        </div>
+        <div *ngIf="isShowSelect" data-for="form[data][0][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+          <label for="form[data][0][1]-formbuilder-4l" class="form-control-label mbr-fonts-style display-7">Type
+            d'utilisateur
+            *</label>
+          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Type d'utilisateur" name="typeUser"
+            [(ngModel)]="userMessage.typeUser">
+            <nz-option nzLabel="Tous les administrateurs" nzValue="admin"></nz-option>
+            <nz-option nzLabel="Tous les candidats" nzValue="candidat"></nz-option>
+            <nz-option nzLabel="Tous les gestionnaires d'entreprise" nzValue="gestionnaire"></nz-option>
+            <nz-option nzLabel="Tous les utilisateurs" nzValue="all"></nz-option>
+          </nz-select>
+        </div>
+        <div data-for="form[data][0][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+          <label for="form[data][0][1]-formbuilder-4l" class="form-control-label mbr-fonts-style display-7">Objet
+            *</label>
+          <input type="hidden" name="form[data][0][0]" value="nom" id="form[data][0][0]-formbuilder-4l"
+            data-form-field="">
+          <input [(ngModel)]="userMessage.objet"
+            value="myStateformbuilder4l.formdata01formbuilder4l.stateformdata01formbuilder4l"
+            on="change:AMP.setState({myStateformbuilder4l:{formdata01formbuilder4l:{valueformdata01formbuilder4l: event.value}}})"
+            type="text" name="form[data][0][1]" data-form-field="nom" required="required" class="field-input display-7"
+            value="" id="form[data][0][1]-formbuilder-4l">
+        </div>
+        <div data-for="form[data][0][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+          <label for="form[data][0][1]-formbuilder-4l" class="form-control-label mbr-fonts-style display-7">Description
+            *</label>
+          <ckeditor tagName="description" [ngModelOptions]="{standalone: true}" [(ngModel)]="userMessage.description"
+            [editor]="Editor"></ckeditor>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</nz-modal>

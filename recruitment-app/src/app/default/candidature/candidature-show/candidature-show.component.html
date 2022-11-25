@@ -1,0 +1,269 @@
+<section class="ampContacts7 cid-sXuVQje3HE" id="ampContacts7-4x">
+    <div class="container">
+        <div class="mbr-row">
+            <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 md-pb" style="height: 500px;">
+                <img *ngIf="candidature?.user?.photo_path" [src]="candidature?.user?.photo_path" layout="responsive" width="538" height="138px" alt="image" class="mobirise-loader" />
+            </div>
+            <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 mbr-col-md-12 md-pb mbr-m-auto">
+                <div class="mbr-row">
+                    <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 mbr-py-2 inner-col">
+                        <h3 class="mbr-text mbr-bold mbr-black mbr-fonts-style mbr-pb-2 group-title display-2">
+                            {{candidature?.user?.name}}</h3>
+                        <p class="mbr-text mbr-gray links mbr-fonts-style display-7">
+                            <a [innerHTML]="candidature?.user?.presentation" class="mbr-pt-2 mbr-text mbr-pb-4 tablet-pb-0 mbr-fonts-style display-7">{{
+                candidature?.user?.presentation }}</a>
+                        </p>
+                    </div>
+                    <div class="mbr-col-lg-6 mbr-col-md-6 mbr-col-sm-12 mbr-pt-4 inner-col">
+                        <div class="mbr-row items mbr-white">
+                            <div class="list-item mbr-pt-2 mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                                <h5 class="mbr-fonts-style mbr-bold mbr-gray list1 display-7">Profession</h5>
+                            </div>
+                            <div class="list-item mbr-pt-2 mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                                <h5 class="mbr-fonts-style mbr-bold mbr-gray list1 display-7">Postulé le</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mbr-col-lg-6 mbr-col-md-6 mbr-col-sm-12 mbr-pt-4 inner-col">
+                        <div class="mbr-row items mbr-white">
+                            <div class="list-item mbr-pt-2 mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                                <h5 class="mbr-fonts-style mbr-gray list2 display-7">
+                                    <span *ngIf="candidature?.user?.profession">{{candidature?.user?.profession}}</span>
+                                    <nz-alert *ngIf="!candidature?.user?.profession" nzType="error" nzMessage="Non précisée"></nz-alert>
+                                </h5>
+                            </div>
+                            <div class="list-item mbr-pt-2 mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                                <h5 class="mbr-fonts-style mbr-gray list2 display-7">{{candidature?.created_at | date: 'dd/MM/yyyy'}}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ampContacts5 cid-sXuU5jO0I9" id="ampContacts5-4v">
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+    <div class="container">
+        <div class="title">
+            <h3 class="mbr-section-subtitle mbr-bold mbr-fonts-style display-7"><span>Dossier de candidature</span></h3>
+            <h4 class="mbr-section-title mbr-fonts-style display-2"><strong>{{candidature?.campagne?.titre}}
+        </strong>.</h4>
+        </div>
+        <div class="contacts-block mbr-flex">
+            <div class="contacts__text">
+                <p class="mbr-text contacts-text mbr-fonts-style display-7" [innerHTML]="candidature?.motivation">
+                    {{candidature?.motivation}}</p>
+                <div class="align-left mbr-section-btn"><a class="btn btn-md btn-primary display-4" href="#"><span
+              class="mobi-mbri mobi-mbri-letter mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path d="M0 4v16h24V4H0zm19.8 2L12 10.7 4.2 6h15.6zM2 18V7l10 6 10-6v11H2z"></path>
+              </svg></span>Contacter&nbsp;</a>
+
+              <button class="btn btn-md btn-success display-4" *ngIf="candidature?.current_state?.state?.type=='initial'" (click)="confirmeReception(candidature)" nz-button [nzLoading]="isConfirmeReception" ><span
+              class="mobi-mbri mobi-mbri-success mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path d="M9 21l-9-9 1.4-1.4L9 18.2 22.6 4.6 24 6 9 21z"></path>
+              </svg></span>
+                Confirmer réception
+              </button>
+
+              <a class="btn btn-md btn-warning display-4" href="#"><span
+              class="mobi-mbri mobi-mbri-close mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path
+                  d="M13.4 12l10.3 10.3-1.4 1.4L12 13.4 1.7 23.7.3 22.3 10.6 12 .3 1.7 1.7.3 12 10.6 22.3.3l1.4 1.4L13.4 12z">
+                </path>
+              </svg></span>Rejeter</a> <a class="btn btn-md btn-success-outline display-4" href="#"><span
+              class="mobi-mbri mobi-mbri-download mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path
+                  d="M6.7 11.9l-1.4 1.4L12 20l6.7-6.7-1.4-1.4-4.3 4.3V0h-2v16.2l-4.3-4.3zM20 20v2H4v-2H2v4h20v-4h-2z">
+                </path>
+              </svg></span>Retenir</a></div>
+            </div>
+            <div class="contacts-box">
+                <div class="adress__box">
+                    <a href="{{candidature?.cv_path}}" class="mbr-text mbr-fonts-style contacts contacts__adress display-7"><strong>visualiser le cv
+            </strong></a>
+                    <p class="contacts-span mbr-text mbr-fonts-style contacts__adr mbr-regular display-7">Curriculum Vitae (CV)
+                    </p>
+                </div>
+                <div class="contacts__callback mbr-flex">
+
+                    <div class="contacts__callback-left">
+                        <p class="mbr-text mbr-fonts-style contacts display-7"><a href="tel:{{candidature?.user?.telephone}}">{{candidature.user?.telephone}}</a><br></p>
+                        <p class="mbr-regular contacts-span mbr-text mbr-fonts-style display-7">Téléphone<br></p>
+                    </div>
+                    <div class="contacts__callback-right">
+                        <p class="mbr-text mbr-fonts-style contacts display-7"><a href="mailto:{{candidature?.user?.email}}">{{candidature?.user?.email}}</a><br></p>
+                        <p class="mbr-regular contacts-span mbr-text mbr-fonts-style display-7"> Email</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="table1 cid-sXuUnFWFBb" id="table1-4w">
+    <div class="container">
+        <div class="mbr-row mbr-justify-content-center">
+            <div class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-12 ">
+                <nz-tabset>
+                    <nz-tab nzTitle="Liste des entretiens">
+                        <h2 class="mbr-fonts-style mbr-section-title mbr-black align-center mbr-bold display-5">Liste des entretiens
+                        </h2>
+
+                        <h3 class="mbr-fonts-style mbr-section-subtitle mbr-black align-center display-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+
+                        <div class="wrapscroll">
+                            <div class="scroll">
+                                <table class="table mbr-text mbr-fonts-style" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <p class="mbr-text align-left tabletitle mbr-fonts-style align-left display-7">Name</p>
+                                            </th>
+                                            <th>
+                                                <p class="mbr-text align-left tabletitle mbr-fonts-style align-left display-7">Age</p>
+                                            </th>
+                                            <th>
+                                                <p class="mbr-text align-left tabletitle mbr-fonts-style align-left display-7">Date</p>
+                                            </th>
+                                            <th>
+                                                <p class="mbr-text align-left tabletitle mbr-fonts-style align-left display-7">Salary</p>
+                                            </th>
+                                            <th>
+                                                <p class="mbr-text align-left tabletitle mbr-fonts-style align-left display-7">Salary</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+
+
+
+
+
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">Jeanna Schmal</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">44</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">2025-10-17</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+
+
+
+
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">Jeanna Schmal</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">44</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">2025-10-17</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+
+
+
+
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">Jeanna Schmal</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">44</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">2025-10-17</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+
+
+
+
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">Jeanna Schmal</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">44</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">2025-10-17</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">Jeanna Schmal</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">44</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">2025-10-17</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                            <td>
+                                                <p class="mbr-text align-left mbr-fonts-style display-7">$317.000</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </nz-tab>
+                    <nz-tab nzTitle="Historique des states">
+                        <div id="global">
+                            <nz-timeline>
+                                <nz-timeline-item nzLabel="2015-09-01">Create a services</nz-timeline-item>
+                                <nz-timeline-item nzLabel="2015-09-01 09:12:11">Solve initial network problems</nz-timeline-item>
+                                <nz-timeline-item>Technical testing</nz-timeline-item>
+                                <nz-timeline-item nzLabel="2015-09-01 09:12:11">Network problems being solved</nz-timeline-item>
+                            </nz-timeline>
+                        </div>
+                    </nz-tab>
+                </nz-tabset>
+            </div>
+        </div>
+    </div>
+</section>

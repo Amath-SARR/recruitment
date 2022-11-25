@@ -1,0 +1,5 @@
+<nz-result nzStatus="success" nzTitle="L'achat du Pack Sms a été effectué avec succès" nzSubTitle="">
+    <div nz-result-extra *ngIf="achatSms">
+        <button nz-button nzType="primary" [routerLink]="['/entreprise',achatSms?.entreprise?.uid,'achat-sms']">Refaire un autre achat</button>
+    </div>
+</nz-result>

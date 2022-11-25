@@ -1,0 +1,156 @@
+<section class="ampHeader27 cid-sVrXuQ1QhW" id="ampHeader27-4m">
+  <div class="container">
+    <div class="mbr-row align-center mbr-jc-c">
+      <div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-12">
+
+        <h2 class="mbr-section-subtitle mbr-black mbr-semibold mbr-fonts-style display-5">Gérer les domaines des
+          entreprises</h2>
+
+        <div class="mbr-section-btn mbr-pt-4">
+          <a class="btn btn-black-outline display-4" (click)="showFormAjout()">Ajouter un domaine</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="isVisibleFormAjout">
+  <section class="form cid-sVrXhEEf7h" id="formbuilder-4l">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+          <!--Formbuilder Form-->
+          <form method="POST" class="mbr-form"
+            data-form-title="domaineNewForm" id="myFormformbuilder4l">
+            <div class="dragArea mbr-row">
+              <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                <h4 class="mbr-fonts-style mbr-fonts-style mbr-fonts-style display-5">Nouveau domaine</h4>
+              </div>
+              <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                <hr>
+              </div>
+              <div data-for="form[data][0][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+                <label for="form[data][0][1]-formbuilder-4l" class="form-control-label mbr-fonts-style display-7">Nom
+                  *</label>
+                <input type="hidden" name="form[data][0][0]" value="nom" id="form[data][0][0]-formbuilder-4l"
+                  data-form-field="">
+                <input [(ngModel)]="domaineInterventionModel.nom"
+                  value="myStateformbuilder4l.formdata01formbuilder4l.stateformdata01formbuilder4l"
+                  on="change:AMP.setState({myStateformbuilder4l:{formdata01formbuilder4l:{valueformdata01formbuilder4l: event.value}}})"
+                  type="text" name="form[data][0][1]" data-form-field="nom" required="required"
+                  class="field-input display-7" value="" id="form[data][0][1]-formbuilder-4l">
+              </div>
+              <div data-for="form[data][1][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+                <label for="form[data][1][1]-formbuilder-4l"
+                  class="form-control-label mbr-fonts-style display-7">Description</label>
+                <input type="hidden" name="form[data][1][0]" value="description" id="form[data][1][0]-formbuilder-4l"
+                  data-form-field="">
+                <textarea [(ngModel)]="domaineInterventionModel.description"
+                  on="change:AMP.setState({myStateformbuilder4l:{formdata11formbuilder4l:{valueformdata11formbuilder4l: event.value}}})"
+                  defaulttext="myStateformbuilder4l.formdata11formbuilder4l.stateformdata11formbuilder4l"
+                  name="form[data][1][1]" data-form-field="description" class="field-input display-7"
+                  id="form[data][1][1]-formbuilder-4l"></textarea>
+              </div>
+              <div class="mbr-col-auto">
+                <button nz-button [nzLoading]="isDomaineInterventionCreating" type="button" (click)="save()"
+                  class="btn btn-primary display-7">Enregistrer</button>
+              </div>
+            </div>
+          </form>
+          <!--Formbuilder Form-->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="features9 cid-sVrXvt7v5T" id="features9-4n">
+  <div class="container">
+    <div class="mbr-row">
+      <div class="mbr-col-md-12">
+        <h1 class="mbr-section-title mbr-fonts-style mbr-bold mbr-black display-5">
+          Liste des domaines des entreprises</h1>
+        <br>
+        <nz-card style="width:100%;" nzTitle="Filtrer les domaines des entreprises">
+          <div class="mbr-row">
+            <div class="mbr-col-lg-6 mbr-col-sm-12">
+              <input nz-input placeholder="Rechercher..." [(ngModel)]="searchField" />
+            </div>
+          </div>
+        </nz-card>
+      </div>
+    </div>
+    <hr>
+    <div class="mbr-row mbr-justify-content-center">
+      <div class="mbr-col-lg-6 mbr-col-md-10" *ngFor="let domaineIntervention of domaineInterventions|filterBy: filterFields: searchField">
+        <div class="wrap">
+          <div class="ico-wrap">
+            <span class="iconfont-wrapper">
+              <span class="amp-iconfont mobi-mbri-sale mobi-mbri"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%">
+                  <path
+                    d="M15.4 2H13V0h-2v2H8.6L4 6.6V24h16V6.6L15.4 2zM18 22H6V7.4L9.4 4H11v2.3c-.6.3-1 1-1 1.7 0 1.1.9 2 2 2s2-.9 2-2c0-.7-.4-1.4-1-1.7V4h1.6L18 7.4V22zm-4-4h2v2h-2v-2zm-4-4H8v-2h2v2zm4.6-2l1.4 1.4L9.4 20 8 18.6l6.6-6.6z">
+                  </path>
+                </svg></span>
+            </span>
+          </div>
+          <div class="text-wrap vcenter">
+            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">{{domaineIntervention?.nom}}</h2>
+            <p class="mbr-fonts-style text1 mbr-text mbr-black display-6">{{domaineIntervention?.description}}</p>
+            <button nz-button [nzType]="'primary'"
+              (click)="showModal(domaineIntervention)"><span>Modifier</span></button>
+            <button nz-button (click)="showDeleteConfirm(domaineIntervention)" nzDanger
+              [nzType]="'primary'"><span>Supprimer</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mbr-row">
+      <div class="mbr-col-lg-12">
+        <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+          (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)"
+          [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+        </nz-pagination>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()"
+  (nzOnOk)="update(domaineInterventionModelUpdate)" nzOkText="Enregistrer">
+  <ng-container *nzModalContent>
+    <form method="POST" class="mbr-form"
+      data-form-title="domaineNewForm" id="myFormformbuilder4l">
+       <div class="dragArea mbr-row">
+        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+          <h4 class="mbr-fonts-style mbr-fonts-style mbr-fonts-style display-5">Modifier domaine</h4>
+        </div>
+        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+          <hr>
+        </div>
+        <div data-for="form[data][0][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+          <label for="form[data][0][1]-formbuilder-4l" class="form-control-label mbr-fonts-style display-7">Nom
+            *</label>
+          <input type="hidden" name="form[data][0][0]" value="nom" id="form[data][0][0]-formbuilder-4l"
+            data-form-field="">
+          <input [(ngModel)]="domaineInterventionModelUpdate.nom"
+            value="myStateformbuilder4l.formdata01formbuilder4l.stateformdata01formbuilder4l"
+            on="change:AMP.setState({myStateformbuilder4l:{formdata01formbuilder4l:{valueformdata01formbuilder4l: event.value}}})"
+            type="text" name="form[data][0][1]" data-form-field="nom" required="required" class="field-input display-7"
+            id="form[data][0][1]-formbuilder-4l">
+        </div>
+        <div data-for="form[data][1][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+          <label for="form[data][1][1]-formbuilder-4l"
+            class="form-control-label mbr-fonts-style display-7">Description</label>
+          <input type="hidden" name="form[data][1][0]" value="description" id="form[data][1][0]-formbuilder-4l"
+            data-form-field="">
+          <textarea [(ngModel)]="domaineInterventionModelUpdate.description"
+            on="change:AMP.setState({myStateformbuilder4l:{formdata11formbuilder4l:{valueformdata11formbuilder4l: event.value}}})"
+            defaulttext="myStateformbuilder4l.formdata11formbuilder4l.stateformdata11formbuilder4l"
+            name="form[data][1][1]" data-form-field="description" class="field-input display-7"
+            id="form[data][1][1]-formbuilder-4l"></textarea>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</nz-modal>

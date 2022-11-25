@@ -1,0 +1,114 @@
+<section class="ampHeader21 cid-sV0tsy1xPx" id="ampHeader21-20">
+  <div class="container-fluid">
+    <div class="mbr-row mbr-black">
+      <div class="title-wrap mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-8 align-left mbr-flex">
+        <div class="title-block mbr-col-sm-12 mbr-col-md-12">
+          <h1 class="mbr-section-title mbr-fonts-style mbr-semibold display-5">{{campagne?.titre}}</h1>
+          <h2 class="mbr-section-subtitle mbr-gray mbr-fonts-style mbr-pt-2 display-4">{{campagne?.user?.name}} / date
+            de lancement : {{campagne?.dateLancement | date: 'dd/MM/yyyy'}}
+            <div style="background-color:#555555;border:#555555;color:white" class="btn">Campagne {{statut_campage}}
+            </div>
+            <button nz-button nzSize="large" *ngIf="campagne.entreprise?.is_owner" class="btn display-4"
+              style="background-color: #F44336; color: white;" (click)="showDeleteConfirm()">Supprimer</button>
+          </h2>
+          <p class="mbr-text mbr-gray mbr-fonts-style mbr-pt-4 display-7" [innerHTML]="campagne?.description"></p>
+
+
+          <div class="mbr-col-12" style="padding-left: 10px;">
+            <ng-container *ngIf="showEditState; else editStateDisabledTemplate">
+              <div class="example-container">
+                <h2>Les états non sélectionnés</h2>
+                <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="notSelectedStates"
+                  [cdkDropListConnectedTo]="[doneList]" class="example-list" (cdkDropListDropped)="dropState($event)">
+                  <div class="example-box" *ngFor="let state of notSelectedStates" [cdkDragData]="state" cdkDrag>
+                    {{state.nom}}<span class="type-state">{{state.type}}</span></div>
+                </div>
+              </div>
+              <div class="example-container">
+                <h2>Les états sélectionnés</h2>
+                <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="selectedStates"
+                  [cdkDropListConnectedTo]="[todoList]" class="example-list" (cdkDropListDropped)="dropState($event)">
+                  <div
+                    [cdkDragDisabled]="state.type!='intermediaire' || state?.candidatures_count_by_campagne![campagne?.id!]! > 0"
+                    class="example-box" *ngFor="let state of selectedStates" [cdkDragData]="state" cdkDrag nz-tooltip
+                    [nzTooltipTitle]="state?.candidatures_count_by_campagne![campagne?.id!]! > 0 && state.type=='intermediaire' ? 'Impossible de retirer ce statut : il existe ' +
+                    state?.candidatures_count_by_campagne![campagne?.id!] + ' candidature(s) à ce stade.' : ''"
+                    nzTooltipPlacement="right">
+                    {{state.nom}}
+                    <ng-container
+                      *ngIf="state.type=='intermediaire' && state?.candidatures_count_by_campagne![campagne?.id!]! > 0">
+                      <span class="type-state">{{state?.candidatures_count_by_campagne![campagne?.id!] ?? 0}}</span>
+                    </ng-container>
+                    <span class="type-state">{{state.type}}</span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <ng-template #editStateDisabledTemplate>
+              <div class="example-container">
+                <h2>Les états sélectionnés</h2>
+                <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="selectedStates" class="example-list"
+                  (cdkDropListDropped)="dropState($event)">
+                  <div
+                    [cdkDragDisabled]="state.type!='intermediaire' || state?.candidatures_count_by_campagne![campagne?.id!]! > 0"
+                    class="example-box" *ngFor="let state of selectedStates" [cdkDragData]="state" cdkDrag>{{state.nom}}
+                    <span class="type-state">{{state.type}}</span>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+
+          <ng-container *ngIf="showEditState;else editState">
+            <button nz-button nzSize="large" nzType="primary" (click)="updateState()"> Mettre à jour </button>
+            <button (click)="cancelEditState()" nz-button nzSize="large" nzType="primary"
+              style="margin-left: 30px; background-color: white;color: black; ">Annuler</button>
+          </ng-container>
+          <ng-template #editState>
+            <button (click)="toggleActiveEditState()"
+              style="background-color: #FFCA28; color: black; border: none; border-radius: 3px;" nz-button
+              nzSize="large" nzType="primary">Modifier le
+              flow</button>
+          </ng-template>
+
+        </div>
+
+      </div>
+      <div class="image-wrap mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-4 mbr-flex">
+        <div class="image-block mbr-col-md-12 mbr-col-sm-12 mbr-m-auto" style="padding-right: 20px;">
+          <img [src]="campagne.photo_path" width="516.2975080645161" style="object-fit: contain;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tab1 cid-sV3Jd0Labz" id="tabs1-2e">
+
+  <div class="container">
+    <div class="mbr-row mbr-justify-content-center">
+      <div class="mbr-col-lg-12 mbr-col-md-12 vcenter">
+        <nz-tabset>
+          <nz-tab nzTitle="Liste des candidatures">
+            <app-campagne-candidature-list *ngIf="campagne?.id" [campagne]="campagne"></app-campagne-candidature-list>
+          </nz-tab>
+          <nz-tab nzTitle="Profils intéressants">
+
+          </nz-tab>
+          <nz-tab nzTitle="Entretien En attente">
+
+          </nz-tab>
+          <nz-tab nzTitle="Entretien Technique">
+
+          </nz-tab>
+          <nz-tab nzTitle="Entretien RH">
+
+          </nz-tab>
+          <nz-tab nzTitle="Décissions Retenus">
+
+          </nz-tab>
+        </nz-tabset>
+      </div>
+    </div>
+  </div>
+</section>

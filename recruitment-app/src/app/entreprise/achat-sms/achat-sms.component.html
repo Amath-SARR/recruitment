@@ -1,0 +1,41 @@
+<section class="ampPricingTable3 cid-sV46i4kCRn" id="ampPricingTable3-2s">
+
+
+
+    <div class="container">
+
+        <div class="title mbr-px-4">
+            <h3 class="mbr-section-title mbr-black mbr-bold mbr-fonts-style display-5"><span>Achat du pack SMS pour l'entreprise</span><br>{{entreprise?.name}}</h3>
+            <h4 class="mbr-section-subtitle mbr-black mbr-pt-2 mbr-fonts-style display-7">Acheter des SMS&nbsp; pour contacter directement les candidats depuis le système en leur envoyant des SMS pour les notifications d'entretien ou toute autre événement intéressant.&nbsp;</h4>
+        </div>
+
+        <div class="mbr-row mbr-pt-4 mbr-px-4 mbr-jc-c">
+            <div class="card card1 mbr-col-sm-12 mbr-col-md-6 md-pb mbr-col-lg-4 align-center" *ngFor="let smsPack of smsPacks">
+                <div class="card-inner">
+
+                    <div class="card-head">
+                        <h3 class="card-title mbr-fonts-style display-7"><b class="mbr-black">{{smsPack?.nom}}</b></h3>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="card-price">
+                            <span class="price-sign mbr-black mbr-fonts-style display-1"><strong>{{smsPack?.nombreSms}}&nbsp;sms</strong></span>
+                        </div>
+                    </div>
+                    <div class="items-list-wrap">
+                        <ul class="items-list mbr-black">
+                            <li class="list-item">
+                                <div class="iconfont-wrapper">
+
+                                </div>
+                                <span class="item-text mbr-fonts-style display-4">Prix:&nbsp;{{smsPack?.montant}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-button mbr-section-btn">
+                        <button nzType="primary" nz-button [nzLoading]="isCreating" (click)="initPayment(smsPack)">Choisir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

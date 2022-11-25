@@ -1,0 +1,105 @@
+<section class="ampContent9 cid-sV48AJ6yRr" id="ampContent9-2x">
+    <div class="container">
+        <div class="title__block align-center">
+            <h3 class="mbr-bold title mbr-section-title mbr-fonts-style mbr-black display-2">Les entreprises</h3>
+            <span class="divider"></span>
+            <h4 class="subtitle mbr-fonts-style display-4">Ces entreprises lancent leurs appels à candidatures depuis la plateforme...
+            </h4>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials4 cid-sV48knxj3i" id="testimonials4-2w">
+
+    <div class="container">
+        <div class="mbr-row mbr-justify-content-center">
+            <div class="mbr-col-lg-12" style="margin-bottom: 5px;">
+                <nz-card style="width:100%;" nzTitle="Rechercher une entreprise">
+                    <div class="mbr-col-lg-12 mbr-col-md-12">
+                        <input nz-input placeholder="Rechercher..." [(ngModel)]="searchField" />
+                    </div>
+                </nz-card>
+            </div>
+            <div class="mbr-col-lg-6 mbr-col-md-12" *ngFor="let entreprise of entreprises|filterBy: filterFields: searchField" [routerLink]="['/entreprise',entreprise.uid]">
+                <div class="text-wrap vcenter">
+                    <div class="card">
+                        <div class="wrap">
+                            <h2 class="mbr-fonts-style title display-4">{{entreprise?.user?.name}}</h2>
+                            <h3 class="mbr-fonts-style subtitle display-5">{{entreprise?.name|truncate: 8:'...' }}</h3>
+                            <p class="mbr-fonts-style mbr-text display-6" [innerHTML]="entreprise?.presentation | truncate: 20: '...' "></p>
+
+                            <!-- <span class="iconfont-wrapper">
+                <span class="amp-iconfont fa-star fa"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path
+                      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                    </path>
+                  </svg></span>
+              </span>
+              <span class="iconfont-wrapper">
+                <span class="amp-iconfont fa-star fa"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path
+                      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                    </path>
+                  </svg></span>
+              </span>
+              <span class="iconfont-wrapper">
+                <span class="amp-iconfont fa-star fa"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path
+                      d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                    </path>
+                  </svg></span>
+              </span>
+              <span class="iconfont-wrapper">
+                <span class="amp-iconfont fa-star-o fa"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path
+                      d="M1201 1004l306-297-422-62-189-382-189 382-422 62 306 297-73 421 378-199 377 199zm527-357q0 22-26 48l-363 354 86 500q1 7 1 20 0 50-41 50-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                    </path>
+                  </svg></span>
+              </span>
+              <span class="iconfont-wrapper">
+                <span class="amp-iconfont fa-star-o fa"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                    xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path
+                      d="M1201 1004l306-297-422-62-189-382-189 382-422 62 306 297-73 421 378-199 377 199zm527-357q0 22-26 48l-363 354 86 500q1 7 1 20 0 50-41 50-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z">
+                    </path>
+                  </svg></span>
+              </span> -->
+
+                        </div>
+                        <div class="img-wrap">
+                            <img src="{{entreprise?.logo_path}}" style="object-fit: contain; height: 200px; max-height: 200px;" [alt]="entreprise.name">
+
+                            <!-- <amp-img class="mobirise-loader" src="{{entreprise?.logo_path}}" layout="responsive" width="279.891" height="279.891" alt=""> -->
+                            <!-- <div placeholder="" class="placeholder">
+                                <div class="mobirise-spinner">
+                                    <em></em>
+                                    <em></em>
+                                    <em></em>
+                                </div></div> -->
+
+                            <!-- </amp-img> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mbr-col-lg-12 mbr-col-md-12">
+                <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions" (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)" [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total"
+                    [nzPageSize]="itemsPerPage">
+                </nz-pagination>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section>
+
+
+
+
+
+</section>

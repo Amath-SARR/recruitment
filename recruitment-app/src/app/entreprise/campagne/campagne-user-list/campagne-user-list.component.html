@@ -1,0 +1,60 @@
+<section class="ampHeader20 cid-sV4ccc5q0b" id="ampHeader20-35">
+
+  <!--Block parameters controls (Blue "Gear" panel) -->
+
+  <div class="container">
+    <div class="title mbr-px-4 align-left">
+      <div class="line-wrap">
+        <div class="line"></div>
+      </div>
+      <div class="mbr-section-title mbr-fonts-style mbr-bold display-5">
+        <span class="main-text mbr-fonts-style">Liste
+          des</span><br>
+        <span class="mbr-primary mbr-fonts-style">Campagnes de recrutement</span>
+        &nbsp; &nbsp; &nbsp; <button routerLink="/campagne/new" class="float-right" nz-button [nzSize]="'default'"
+          nzType="primary">Nouvelle campagne</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials4 cid-sV4c5uNtC2" id="testimonials4-34">
+  <div class="container">
+    <div class="mbr-row">
+      <ng-container *ngFor="let campagne of campagnes">
+        <div class="mbr-col-lg-6 mbr-col-md-12" [routerLink]="['/campagne',campagne.uid,'admin']" routerLinkActive="router-link-active" >
+          <div class="card">
+
+            <div class="wrap">
+              <h2 class="mbr-fonts-style title display-4">{{campagne?.entreprise?.name}}</h2>
+              <h3 class="mbr-fonts-style subtitle display-4">{{campagne?.titre}}</h3>
+              <p class="mbr-fonts-style mbr-text display-6" [innerHTML]="campagne?.description!|truncate:20:'...'">
+              </p>
+              <p>
+                <b>
+                  Date de lancement :
+                </b>
+                {{campagne?.dateLancement | date:'dd LLLL YYYY':'+0200':'fr' | titlecase}}
+              </p>
+              <p>
+                <b>
+                  Date de Clotûre :
+                </b>
+                {{campagne?.dateCloture | date:'dd LLLL YYYY':'+0200':'fr' | titlecase}}
+              </p>
+              <p><b>Lieu : </b> {{campagne?.lieu}}</p>
+            </div>
+
+            <div class="img-wrap">
+              <img style="object-fit: contain; max-height: 250px;" class="responsive" [src]="campagne?.photo_path"
+                alt="logo {{campagne?.titre}}">
+            </div>
+
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+
+</section>

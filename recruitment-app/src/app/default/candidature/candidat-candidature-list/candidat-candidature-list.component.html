@@ -1,0 +1,102 @@
+<section class="ampHeader20 cid-sUX7bL0FaA" id="ampHeader20-n">
+
+  <!--Block parameters controls (Blue "Gear" panel) -->
+
+  <div class="container">
+    <div class="title mbr-px-4 align-center">
+      <div class="line-wrap">
+        <div class="line"></div>
+      </div>
+      <div class="mbr-section-title mbr-fonts-style mbr-bold display-2">
+        <span class="main-text mbr-fonts-style">Mes dossiers</span>
+        <span class="mbr-primary mbr-fonts-style"> de candidature</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ampEvents3 cid-sUX6nDsNF8" id="ampEvents3-m">
+
+  <!--Block parameters controls (Blue "Gear" panel) -->
+
+  <div class="container ">
+    <div class="mbr-flex flex-wrap mbr-jc-c">
+      <div
+        class="title-wrap mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 mbr-flex mbr-column mbr-jc-c mbr-pb-5 align-center"
+        style="margin-bottom: 5px;">
+        <!-- <nz-card style="width:100%;" nzTitle="Rechercher une campagne">
+                <div class="mbr-col-lg-12 mbr-col-md-12">
+                    <input nz-input placeholder="Rechercher..." [(ngModel)]="searchField" />
+                </div>
+            </nz-card><br> -->
+        <h2 class="mbr-section-title section-title mbr-fonts-style display-5">Mes candidatures</h2>
+        <h3 class="section-subtitle mbr-fonts-style mbr-text-i display-4">Postulez dès maintenant aux candidatures qui
+          vous intéressent...</h3>
+      </div>
+      <div class="mbr-row">
+        <div class="mbr-col-md-12 mbr-pb-1"
+          *ngFor="let candidature of candidatures|filterBy: filterFields: searchField">
+          <div class="mbr-row">
+            <div class="mbr-col-sm-12 mbr-col-md-4 mbr-col-lg-3">
+              <img src="{{candidature?.campagne?.photo_path}}" layout="responsive" style="height: 200px; object-fit: contain;" alt="image">
+            </div>
+            <div class="mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-6">
+              <h4 class="custom-card-title mbr-pb-2 mbr-fonts-style mbr-text-cap display-5"><a
+                  href="campagne-public-show.html" class="text-primary">{{candidature?.campagne?.titre}}</a></h4>
+              <div>
+                <div class="card-item">
+                  <div class="iconfont-wrapper">
+                    <span class="amp-iconfont animation-normal fa fa-calendar"><svg width="100%" height="100%"
+                        viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <path
+                          d="M192 1664h288v-288h-288v288zm352 0h320v-288h-320v288zm-352-352h288v-320h-288v320zm352 0h320v-320h-320v320zm-352-384h288v-288h-288v288zm736 736h320v-288h-320v288zm-384-736h320v-288h-320v288zm768 736h288v-288h-288v288zm-384-352h320v-320h-320v320zm-352-864v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm736 864h288v-320h-288v320zm-384-384h320v-288h-320v288zm384 0h288v-288h-288v288zm32-480v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm384-64v1280q0 52-38 90t-90 38h-1408q-52 0-90-38t-38-90v-1280q0-52 38-90t90-38h128v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h384v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h128q52 0 90 38t38 90z">
+                        </path>
+                      </svg></span>
+                  </div>
+                  <p class="custom-card-text2 mbr-fonts-style mbr-card-subtitle mbr-text-i display-4">
+                    clôture prévue pour le {{candidature?.campagne?.dateCloture | date: 'dd/MM/yyyy'}}</p>
+                </div>
+                <div class="card-item">
+                  <div class="iconfont-wrapper">
+                    <span class="amp-iconfont animation-normal fa fa-map-marker"><svg width="100%" height="100%"
+                        viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <path
+                          d="M1152 640q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm256 0q0 109-33 179l-364 774q-16 33-47.5 52t-67.5 19-67.5-19-46.5-52l-365-774q-33-70-33-179 0-212 150-362t362-150 362 150 150 362z">
+                        </path>
+                      </svg></span>
+                  </div>
+                  <p
+                    class="custom-card-text2 primary-color-text mbr-fonts-style mbr-card-subtitle mbr-text-i display-4">
+                    {{candidature?.campagne?.entreprise?.adresse}}</p>
+                </div>
+                <div class="card-item">
+                  <div class="iconfont-wrapper">
+                    <span class="amp-iconfont animation-normal fa fa-location-arrow"><svg width="100%" height="100%"
+                        viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <path
+                          d="M1593 349l-640 1280q-17 35-57 35-5 0-15-2-22-5-35.5-22.5t-13.5-39.5v-576h-576q-22 0-39.5-13.5t-22.5-35.5 4-42 29-30l1280-640q13-7 29-7 27 0 45 19 15 14 18.5 34.5t-6.5 39.5z">
+                        </path>
+                      </svg></span>
+                  </div>
+                  <p class="custom-card-text2 mbr-fonts-style mbr-card-subtitle mbr-text-i display-4">
+                    {{candidature?.campagne?.lieu}}</p>
+                </div>
+              </div>
+              <p class="mbr-pt-2 mbr-text mbr-pb-1 tablet-pb-0 mbr-fonts-style display-7"
+                [innerHTML]="candidature?.campagne?.description"></p>
+            </div>
+            <div class="mbr-col-sm-12 mbr-col-md-2 mbr-col-lg-3">
+              <div><a class="btn btn-black-outline display-7" href="campagne-public-show.html">En savoir plus</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="mbr-col-md-12 mbr-pb-5">
+          <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+            (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)"
+            [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+          </nz-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

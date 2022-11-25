@@ -1,0 +1,296 @@
+<section class="ampHeader23 slider slider-with-bullets cid-sUBq5lGdgO" id="ampHeader23-b">
+    <div class="slider-box" data-autoplay="true" data-delay="7000">
+        <amp-carousel class="carousel" height="3" width="4" layout="responsive" type="slides" loop="" autoplay="" delay="7000" id="carouselampHeader23b">
+            <div class="image">
+                <amp-img class="carousel-img mobirise-loader" src="assets/images/background4.jpg" layout="fill" alt="image" width="4.5" height="3">
+                    <div class="container">
+                        <div class="custom-title-box">
+                            <h4 class="mbr-section-subtitle mbr-bold mbr-fonts-style mbr-pt-2 display-7">Postuler
+                            </h4>
+                            <h3 class="mbr-section-title mbr-fonts-style mbr-bold line-title display-1">Postuler votre dossier de candidature rapidement</h3>
+                        </div>
+                    </div>
+                    <div placeholder="" class="placeholder">
+                        <div class="mobirise-spinner">
+                            <em></em>
+                            <em></em>
+                            <em></em>
+                        </div>
+                    </div>
+                </amp-img>
+            </div>
+            <div class="image">
+                <amp-img class="carousel-img mobirise-loader" src="assets/images/mbr-1-1920x1280.jpg" layout="fill" alt="image" width="4.5" height="3">
+                    <div class="container">
+                        <div class="custom-title-box">
+                            <h4 class="mbr-section-subtitle mbr-bold mbr-fonts-style mbr-pt-2 display-7">Suivre</h4>
+                            <h3 class="mbr-section-title mbr-fonts-style mbr-bold line-title display-1">Suivez votre dossier de candidature avec votre compte</h3>
+                        </div>
+                    </div>
+                    <div placeholder="" class="placeholder">
+                        <div class="mobirise-spinner">
+                            <em></em>
+                            <em></em>
+                            <em></em>
+                        </div>
+                    </div>
+                </amp-img>
+            </div>
+            <div class="image">
+                <amp-img class="carousel-img mobirise-loader" src="assets/images/mbr-1920x1278.jpg" layout="fill" alt="image" width="4.507042253521126" height="3">
+                    <div class="container">
+                        <div class="custom-title-box">
+                            <h4 class="mbr-section-subtitle mbr-bold mbr-fonts-style mbr-pt-2 display-7">Traiter
+                            </h4>
+                            <h3 class="mbr-section-title mbr-fonts-style mbr-bold line-title display-1">Traiter les dossiers de candidatures de votre entreprise de manière coordonnée</h3>
+                        </div>
+                    </div>
+                    <div placeholder="" class="placeholder">
+                        <div class="mobirise-spinner">
+                            <em></em>
+                            <em></em>
+                            <em></em>
+                        </div>
+                    </div>
+                </amp-img>
+            </div>
+        </amp-carousel>
+    </div>
+    <div class="dots-wrapper mbr-flex mbr-jc-c">
+        <p class="dots"><span role="button" tabindex="0" on="tap:carouselampHeader23b.goToSlide(index=0)" amp-class="selectedampHeader23b.slide == '0' ? 'current' : ''" class="current"></span>
+        </p>
+        <p class="dots"><span role="button" tabindex="1" on="tap:carouselampHeader23b.goToSlide(index=1)" amp-class="selectedampHeader23b.slide == '1' ? 'current' : ''"></span>
+        </p>
+        <p class="dots"><span role="button" tabindex="2" on="tap:carouselampHeader23b.goToSlide(index=2)" amp-class="selectedampHeader23b.slide == '2' ? 'current' : ''"></span>
+        </p>
+    </div>
+</section>
+
+<section class="ampHeader33 cid-sV3cRraKsG" id="ampHeader33-24">
+    <div class="container">
+        <div class="mbr-row align-left mbr-jc-c">
+            <div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-8">
+                <div class="mbr-section-btn">
+                    <ng-container *ngIf="!currentUser">
+                        <a class="btn btn-black-outline display-7" routerLink="/login">Se
+              connecter</a>
+                        <a class="btn btn-black-outline display-7" routerLink="/register">Ouvrir un
+              compte</a>
+                    </ng-container>
+                    <a class="btn btn-black-outline display-7" (click)="redirectEntrepriseForm()">Créer une
+            entreprise</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="form cid-sVgAd5VvO3" id="formbuilder-3h">
+    <div class="container">
+        <div class="form-wrap mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-12">
+            <div class="form-block mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-10 mbr-m-auto" data-form-type="formoid">
+                <!--Formbuilder Form-->
+                <div class="mbr-overlay"></div>
+                <div class="dragArea mbr-row">
+                    <div class="mbr-col-md-12 mbr-col-sm-12 align-center">
+                        <h4 class="mbr-fonts-style mbr-fonts-style mbr-fonts-style mbr-fonts-style mbr-fonts-style mbr-fonts-style form-subtitle mbr-pb-2 display-5">
+                            Filtrage des campagnes actives</h4>
+                    </div>
+                    <hr style="width: 100%;">
+                    <div data-for="form[data][7][1]" class="mbr-col-lg-4 mbr-col-md-12 mbr-col-sm-12 text-field field">
+                        <label for="form[data][7][1]-ampHeader31-27" class="form-control-label mbr-fonts-style display-7">Spécifications</label>
+                        <input type="hidden" name="form[data][5][0]" value="specifications" id="form[data][7][0]-ampHeader31-27" data-form-field="">
+                        <br>
+                        <nz-select style="width: 100%;" nzPlaceHolder=" Sélectionnez un type d'offre" [(ngModel)]="selectedTypeOffres" name="types d'offre" nzAllowClear nzMode="multiple" nzSize="large" (nzOpenChange)="getAllTypeOffre()" (ngModelChange)="filtreActiveCampagnes()">
+                            <ng-container *ngFor="let typeOffre of typeOffres">
+                                <nz-option *ngIf="!isLoadingTypeOffres" [nzValue]="typeOffre" [nzLabel]="typeOffre.name!">
+                                </nz-option>
+                            </ng-container>
+                            <nz-option *ngIf="isLoadingTypeOffres" nzDisabled nzCustomContent>
+                                <i nz-icon nzType="loading" class="loading-icon"></i> Chargement des types d'offres...
+                            </nz-option>
+                        </nz-select>
+                    </div>
+                    <div data-for="form[data][7][1]" class="mbr-col-lg-4 mbr-col-md-12 mbr-col-sm-12 text-field field">
+                        <label for="form[data][7][1]-ampHeader31-27" class="form-control-label mbr-fonts-style display-7">Hashtags</label>
+                        <input type="hidden" name="form[data][5][0]" value="hashtags" id="form[data][7][0]-ampHeader31-27" data-form-field="">
+                        <br>
+                        <nz-select style="width: 100%;" nzPlaceHolder=" Sélectionnez un ou plusieurs hashtags" [(ngModel)]="selectedHashtags" name="hashtags" nzAllowClear nzMode="multiple" nzSize="large" (nzOpenChange)="getAllHashtags()" (ngModelChange)="filtreActiveCampagnes()">
+                            <ng-container *ngFor="let hashtag of hashtags">
+                                <nz-option *ngIf="!isLoadingHashtags" [nzValue]="hashtag" [nzLabel]="hashtag.nom!">
+                                </nz-option>
+                            </ng-container>
+                            <nz-option *ngIf="isLoadingHashtags" nzDisabled nzCustomContent>
+                                <i nz-icon nzType="loading" class="loading-icon"></i> Chargement des hashtags...
+                            </nz-option>
+                        </nz-select>
+                    </div>
+                    <div data-for="form[data][0][1]" class="mbr-col-lg-4 mbr-col-md-12 mbr-col-sm-12 field">
+                        <label for="form[data][0][1]-ampHeader31-27" class="form-control-label mbr-fonts-style display-7">Catégorie d'emploi</label>
+                        <input type="hidden" name="form[data][0][0]" value="categorie_emploi" id="form[data][0][0]-ampHeader31-27" data-form-field="">
+                        <br>
+                        <nz-select style="width: 100%" nzSize="large" nzPlaceHolder="Sélectionnez une catégorie d'emploi" [(ngModel)]="selectedCategorieEmploi" name="catégories d'emploi" nzAllowClear nzMode="multiple" (nzOpenChange)="getAllCategorieEmplois()" (ngModelChange)="filtreActiveCampagnes()">
+                            <ng-container *ngFor="let CategorieEmploi of CategorieEmplois">
+                                <nz-option *ngIf="!isLoadingCategorieEmplois" [nzValue]="CategorieEmploi" [nzLabel]="CategorieEmploi.name!">
+                                </nz-option>
+                            </ng-container>
+                            <nz-option *ngIf="isLoadingCategorieEmplois" nzDisabled nzCustomContent>
+                                <i nz-icon nzType="loading" class="loading-icon"></i> Chargement des catégories d'emploi...
+                            </nz-option>
+                        </nz-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ampEvents3 cid-sUB60dVz8F" id="ampEvents3-5">
+    <div class="container">
+        <div class="mbr-flex flex-wrap mbr-jc-c">
+            <div class="title-wrap mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 mbr-flex mbr-column mbr-jc-c mbr-pb-5 align-center">
+                <h2 class="mbr-section-title section-title mbr-fonts-style display-5">Campagnes actives</h2>
+                <h3 class="section-subtitle mbr-fonts-style mbr-text-i display-4">Postulez dès maintenant aux candidatures qui vous intéressent...</h3>
+            </div>
+            <div *ngFor="let campagne of campagnes" class="mbr-row custom-row mbr-pb-3">
+                <div class="mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-3">
+                    <div class="img-wrap">
+                        <img src="{{campagne?.photo_path}}" style="object-fit: fill; height: 190px; max-height: 190px; " alt="photo">
+                    </div>
+                </div>
+                <div class="mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-6">
+                    <h4 class="custom-card-title mbr-pb-2 mbr-fonts-style mbr-text-cap display-5"><a class="text-primary">{{campagne.titre}}</a></h4>
+                    <div>
+                        <div class="card-item">
+                            <div class="iconfont-wrapper">
+                                <span class="amp-iconfont animation-normal fa fa-calendar"><svg width="100%" height="100%"
+                    viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path
+                      d="M192 1664h288v-288h-288v288zm352 0h320v-288h-320v288zm-352-352h288v-320h-288v320zm352 0h320v-320h-320v320zm-352-384h288v-288h-288v288zm736 736h320v-288h-320v288zm-384-736h320v-288h-320v288zm768 736h288v-288h-288v288zm-384-352h320v-320h-320v320zm-352-864v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm736 864h288v-320h-288v320zm-384-384h320v-288h-320v288zm384 0h288v-288h-288v288zm32-480v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm384-64v1280q0 52-38 90t-90 38h-1408q-52 0-90-38t-38-90v-1280q0-52 38-90t90-38h128v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h384v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h128q52 0 90 38t38 90z">
+                    </path>
+                  </svg></span>
+                            </div>
+                            <p class="custom-card-text2 mbr-fonts-style mbr-card-subtitle mbr-text-i display-4">
+                                {{campagne?.dateCloture | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                        <div class="card-item">
+                            <div class="iconfont-wrapper">
+                                <span class="amp-iconfont animation-normal fa fa-map-marker"><svg width="100%" height="100%"
+                    viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path
+                      d="M1152 640q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm256 0q0 109-33 179l-364 774q-16 33-47.5 52t-67.5 19-67.5-19-46.5-52l-365-774q-33-70-33-179 0-212 150-362t362-150 362 150 150 362z">
+                    </path>
+                  </svg></span>
+                            </div>
+                            <p class="custom-card-text2 primary-color-text mbr-fonts-style mbr-card-subtitle mbr-text-i display-4">
+                                {{campagne?.entreprise?.name}}</p>
+                        </div>
+                        <div class="card-item">
+                            <div class="iconfont-wrapper">
+                                <span class="amp-iconfont animation-normal fa fa-location-arrow"><svg width="100%" height="100%"
+                    viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                    <path
+                      d="M1593 349l-640 1280q-17 35-57 35-5 0-15-2-22-5-35.5-22.5t-13.5-39.5v-576h-576q-22 0-39.5-13.5t-22.5-35.5 4-42 29-30l1280-640q13-7 29-7 27 0 45 19 15 14 18.5 34.5t-6.5 39.5z">
+                    </path>
+                  </svg></span>
+                            </div>
+                            <p class="custom-card-text2 mbr-fonts-style mbr-card-subtitle mbr-text-i display-4">{{campagne?.lieu}}</p>
+                        </div>
+                    </div>
+                    <p [innerHTML]="campagne?.description!|truncate:200:'...'" class="mbr-pt-2 mbr-text mbr-pb-4 tablet-pb-0 mbr-fonts-style display-7">{{ campagne?.description }}</p>
+                </div>
+                <div class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-3 custom-flex">
+                    <div><a class="btn btn-black-outline display-7" [routerLink]="['/campagne',campagne.uid,'details']">En savoir
+              plus</a>
+                        <a class="btn btn-black-outline display-7">Enregistrer</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="social-share cid-sVmipKQUq0" id="social-share-46">
+    <div class="container align-center">
+        <div class="title-wrap">
+            <h1 class="mbr-section-title mbr-fonts-style display-5">
+                Partager cette page sur</h1>
+            <div class="underline">
+                <div class="line"></div>
+            </div>
+        </div>
+        <amp-social-share type="email" width="3rem" height="3rem"></amp-social-share>
+        <amp-social-share type="facebook" data-param-app_id="254325784911610" width="3rem" height="3rem">
+        </amp-social-share>
+        <amp-social-share type="linkedin" width="3rem" height="3rem"></amp-social-share>
+        <amp-social-share type="pinterest" data-param-media="https://ampbyexample.com/img/amp.jpg" width="3rem" height="3rem"></amp-social-share>
+        <amp-social-share type="tumblr" width="3rem" height="3rem"></amp-social-share>
+        <amp-social-share type="twitter" width="3rem" height="3rem"></amp-social-share>
+    </div>
+</section>
+
+<section class="form cid-sVgByBpSBi" id="formbuilder-3i">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                <!--Formbuilder Form-->
+                <form method="POST" class="mbr-form" data-form-title="UNTITLED FORM" id="myFormformbuilder3i">
+                    <div class="dragArea mbr-row">
+                        <div data-for="form[data][0][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+                            <label for="form[data][0][1]-formbuilder-3i" class="form-control-label mbr-fonts-style display-7">Filtrer
+                les entreprises selon
+                leur domaine d'intervention...</label>
+                            <input type="hidden" name="form[data][0][0]" value="domaines" id="form[data][0][0]-formbuilder-3i" data-form-field="">
+                            <select name="form[data][0][1]" data-form-field="domaines" class="form-select field-input display-7" id="form[data][0][1]-formbuilder-3i">
+                <option value="Sélectionner pour filtrer">Sélectionner pour filtrer</option>
+                <option value="Education">Education</option>
+                <option value="Juridisme">Juridisme</option>
+              </select>
+                        </div>
+                    </div>
+                </form>
+                <!--Formbuilder Form-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ampClient7 cid-sV36alVAwz" id="ampClient7-22">
+    <div class="container">
+        <div class="title mbr-pb-5">
+            <h4 class="mbr-section-subtitle mbr-semibold mbr-pb-1 text-primary mbr-fonts-style display-4">Les entreprises
+            </h4>
+            <h3 class="mbr-section-title mbr-bold mbr-fonts-style display-5">Elles utilisent Recruitment</h3>
+        </div>
+        <div class="mbr-row mbr-px-2 gallery-wrap mbr-jc-c">
+            <div class="mbr-col-md-12 mbr-col-sm-12 gallery-row row-first flex-wrap mbr-col-lg-12 mbr-flex">
+                <div class="gallery-item mbr-col-sm-12 mbr-col-lg-3 mbr-col-md-8 md-pb mbr-p-2" *ngFor="let entreprise of entreprises">
+                    <div class="gallery-img-wrap">
+                        <a [routerLink]="['/entreprise',entreprise.uid]">
+                            <img [src]="entreprise.logo_path" [title]="entreprise.name" height="134.188" width="243.97818181818178" alt="image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="social-share cid-sVmir2324A" id="social-share-47">
+    <div class="container align-center">
+        <div class="title-wrap">
+            <h1 class="mbr-section-title mbr-fonts-style display-5">
+                Partager cette page sur</h1>
+            <div class="underline">
+                <div class="line"></div>
+            </div>
+        </div>
+        <amp-social-share type="email" width="3rem" height="3rem"></amp-social-share>
+        <amp-social-share type="facebook" data-param-app_id="254325784911610" width="3rem" height="3rem">
+        </amp-social-share>
+        <amp-social-share type="linkedin" width="3rem" height="3rem"></amp-social-share>
+        <amp-social-share type="pinterest" data-param-media="https://ampbyexample.com/img/amp.jpg" width="3rem" height="3rem"></amp-social-share>
+        <amp-social-share type="tumblr" width="3rem" height="3rem"></amp-social-share>
+        <amp-social-share type="twitter" width="3rem" height="3rem"></amp-social-share>
+    </div>
+</section>

@@ -1,0 +1,114 @@
+<section class="ampHeader27 cid-sVgE8WjzE4" id="ampHeader27-3k">
+    <div class="container">
+        <div class="mbr-row align-center mbr-jc-c">
+            <div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-12">
+
+                <h2 class="mbr-section-subtitle mbr-black mbr-semibold mbr-fonts-style display-5">
+                    Les catégories d'emploi</h2>
+                <div class="mbr-section-btn mbr-pt-4"><a class="btn btn-black display-4" (click)="isVisible()">Créer une
+            catégorie</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Ajouter une nouvelle categorie-->
+<section *ngIf="Visible" class="form cid-sVgEyDdQJu" id="formbuilder-3l">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                <form method="POST" class="mbr-form" id="myFormformbuilder3l">
+                    <div class="mbr-row">
+                        <div submit-success="" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                        </div>
+                        <div submit-error="" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+
+                        </div>
+                    </div>
+                    <div class="dragArea mbr-row">
+                        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                            <h4 class="mbr-fonts-style mbr-fonts-style display-5">Nouvelle catégorie d'emploi</h4>
+                        </div>
+                        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                            <hr>
+                        </div>
+                        <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][0][1]">
+                            <label for="form[data][0][1]-formbuilder-3l" class="form-control-label mbr-fonts-style display-7">Nom
+                *</label>
+                            <input type="hidden" name="form[data][0][0]" value="name" id="form[data][0][0]-formbuilder-3l" data-form-field="">
+                            <input [(ngModel)]="categorieModel.name" amp-value="myStateformbuilder3f.formdata01formbuilder3f.stateformdata01formbuilder3f" on="change:AMP.setState({myStateformbuilder3l:{formdata01formbuilder3l:{valueformdata01formbuilder3l: event.value}}})" type="text"
+                                name="form[data][0][1]" data-form-field="name" class="field-input display-7" required="required" value="" id="form[data][0][1]-formbuilder-3l">
+                        </div>
+                        <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][1][1]">
+                            <label for="form[data][1][1]-formbuilder-3l" class="form-control-label mbr-fonts-style display-7">Description</label>
+                            <input type="hidden" name="form[data][1][0]" value="description" id="form[data][1][0]-formbuilder-3l" data-form-field="">
+                            <input [(ngModel)]="categorieModel.description" amp-value="myStateformbuilder3f.formdata01formbuilder3f.stateformdata01formbuilder3f" on="change:AMP.setState({myStateformbuilder3l:{formdata11formbuilder3l:{valueformdata11formbuilder3l: event.value}}})"
+                                type="text" name="form[data][1][1]" data-form-field="description" class="field-input display-7" value="" id="form[data][1][1]-formbuilder-3l">
+                        </div>
+                        <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12">
+                            <button nz-button [nzLoading]="isCategorieCreating" type="button" (click)="save()" class="btn btn-primary display-7">Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
+                <!--Formbuilder Form-->
+            </div>
+        </div>
+    </div>
+</section>
+<!--Affichage liste des categories-->
+<section class="features9 cid-sVbt262sOS" id="features9-3b">
+
+    <div class="container">
+        <div class="mbr-row ">
+            <div class="mbr-col-md-12 mbr-col-sm-12">
+                <h1 class="mbr-section-title mbr-fonts-style mbr-bold mbr-black display-5">
+                    Liste des categories d'emploi</h1>
+                <br>
+                <nz-card style="width:100%;" nzTitle="Filtrer les categories d'emploi">
+                    <div class="mbr-row">
+                        <div class="mbr-col-lg-6 mbr-col-sm-12">
+                            <input nz-input placeholder="Rechercher..." [(ngModel)]="searchField" />
+                        </div>
+                    </div>
+                </nz-card>
+            </div>
+        </div>
+        <hr>
+        <div class="mbr-row mbr-justify-content-center  ">
+            <div *ngFor="let categorie of categorieEmplois|filterBy: filterFields: searchField" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12">
+
+                <div class="wrap">
+
+                    <div class="text-wrap vcenter ">
+                        <h3 class="mbr-fonts-style  subtitle display-5">{{categorie.name}}
+
+                        </h3>
+                        <p class="mbr-fonts-style text mbr-text mbr-black display-6">{{categorie.description}}</p>
+                        <button nz-button [nzType]="'primary'" (click)="showModal(categorie)" nzwarning><span>Modifier</span></button>&nbsp;&nbsp;
+                        <button nz-button nzType="primary" nzDanger (click)="showDeleteConfirm(categorie)">Supprimer</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="mbr-col-lg-12">
+            <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions" (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)" [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total"
+                [nzPageSize]="itemsPerPage">
+            </nz-pagination>
+        </div>
+    </div>
+
+
+</section>
+<!--Modal pour la modification categorie d'emploi-->
+<nz-modal [nzVisible]="visibleModal" nzTitle="Modifier Catégorie d'emploi" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Nom</nz-form-label>
+        <input nz-input [(ngModel)]="categorieUpdate.name" />
+        <br />
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="description">Description</nz-form-label>
+        <input nz-input [(ngModel)]="categorieUpdate.description" />
+    </ng-container>
+</nz-modal>

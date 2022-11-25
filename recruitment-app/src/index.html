@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html amp>
+
+<head>
+  <script async="" custom-element="amp-install-serviceworker"
+    src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+  <script async="" custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/mbr-90x90.png" type="image/x-icon">
+  <meta name="description"
+    content="Plateforme de gestion des dossiers de candidature pour recrutement pour les entreprises allant de la création de la campagne à l'entretien RH.">
+  <meta name="amp-script-src" content="sha384-dT70kHVr16urXvhGM9hkt_fCn11iWz7rK8VhaUgoVgnYcGdC85wftckwRBx0Nn5S">
+
+  <title>Recruitment - Gérer les recrutements autrement</title>
+
+  <link rel="canonical" href="./">
+  <style amp-boilerplate>
+    body {
+      -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      animation: -amp-start 8s steps(1, end) 0s 1 normal both
+    }
+
+    @-webkit-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-moz-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-ms-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-o-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+  </style>
+  <noscript>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        animation: none
+      }
+    </style>
+  </noscript>
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+    rel="stylesheet">
+
+  <!-- <style amp-custom>
+
+  </style> -->
+
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+  <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+	<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+	<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+  <script async custom-element="amp-social-share"
+  src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+
+  <meta name="theme-color" content="#f3f2ef">
+  <link rel="manifest" href="assets/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="assets/images/apple-launch-640x1136.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="assets/images/apple-launch-750x1334.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    href="assets/images/apple-launch-1242x2208.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    href="assets/images/apple-launch-1125x2436.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="assets/images/apple-launch-1536x2048.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="assets/images/apple-launch-1668x2224.png">
+  <link rel="apple-touch-startup-image"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    href="assets/images/apple-launch-2048x2732.png">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="mat-typography">
+  <amp-sidebar id="sidebar" class="cid-sUX22uYNxM" layout="nodisplay" side="right">
+    <div class="builder-sidebar" id="builder-sidebar">
+      <button on="tap:sidebar.close" class="close-sidebar">
+        <span></span>
+        <span></span>
+      </button>
+
+
+      <!-- NAVBAR ITEMS -->
+      <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+        <li class="nav-item dropdown"><a
+            class="nav-link mbr-regular link text-black text-primary dropdown-toggle display-4"
+            data-toggle="dropdown-submenu" aria-expanded="false">Mon espace</a>
+          <div class="dropdown-menu"><a class="mbr-regular text-black text-primary dropdown-item display-4"
+              href="mes-entreprises.html">Mes entreprises</a><a
+              class="mbr-regular text-black text-primary dropdown-item display-4" href="mes-candidatures.html">Mes
+              candidatures</a><a class="mbr-regular text-black text-primary dropdown-item display-4"
+              href="mes-entretiens.html">Mes entretiens</a><a
+              class="mbr-regular text-black text-primary dropdown-item display-4"
+              href="notifications.html">Notifications (20)</a></div>
+        </li>
+        <li class="nav-item dropdown"><a class="nav-link link mbr-regular text-black dropdown-toggle display-4"
+            aria-expanded="false" data-toggle="dropdown-submenu">Admin</a>
+          <div class="dropdown-menu"><a class="mbr-regular text-black dropdown-item text-primary display-4"
+              href="page19.html" aria-expanded="false">Les utilisateurs</a><a
+              class="mbr-regular text-black dropdown-item text-primary display-4" href="entreprise-admin-list.html"
+              aria-expanded="false">Les entreprises</a><a
+              class="mbr-regular text-black dropdown-item text-primary display-4" href="campagne-admin-list.html"
+              aria-expanded="false">Les campagnes</a></div>
+        </li>
+        <li class="nav-item dropdown"><a class="nav-link link mbr-regular text-black dropdown-toggle display-4"
+            aria-expanded="false" data-toggle="dropdown-submenu">Moussa FOFANA</a>
+          <div class="dropdown-menu"><a class="mbr-regular text-black dropdown-item text-primary display-4"
+              href="profil.html" aria-expanded="false">Mon profil</a><a
+              class="mbr-regular text-black dropdown-item display-4" href="#" aria-expanded="false">Déconnexion</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link mbr-regular link text-black display-4" href="#">Aides</a>
+        </li>
+      </ul>
+      <!-- NAVBAR ITEMS END -->
+      <!-- SOCIAL ICON -->
+      <div class="menu-social-list">
+
+
+
+        <a href="https://www.linkedin.com/company/bambogroupsn/" target="_blank">
+          <span class="amp-iconfont fa-linkedin-square fa"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+              xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <path
+                d="M365 1414h231v-694h-231v694zm246-908q-1-52-36-86t-93-34-94.5 34-36.5 86q0 51 35.5 85.5t92.5 34.5h1q59 0 95-34.5t36-85.5zm585 908h231v-398q0-154-73-233t-193-79q-136 0-209 117h2v-101h-231q3 66 0 694h231v-388q0-38 7-56 15-35 45-59.5t74-24.5q116 0 116 157v371zm468-998v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z">
+              </path>
+            </svg></span>
+        </a><a href="https://www.facebook.com/bambogroupsn" target="_blank">
+          <span class="amp-iconfont fa-facebook-square fa"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+              xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <path
+                d="M1376 128q119 0 203.5 84.5t84.5 203.5v960q0 119-84.5 203.5t-203.5 84.5h-188v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-532q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960z">
+              </path>
+            </svg></span>
+        </a>
+      </div>
+      <!-- SOCIAL ICON END -->
+      <!-- SHOW BUTTON -->
+
+      <!-- SHOW BUTTON END -->
+    </div>
+  </amp-sidebar>
+  <amp-install-serviceworker src="assets/sw.js" layout="nodisplay"></amp-install-serviceworker>
+  <div class="pwa-mobile-notification">
+    <amp-script src="assets/ios-pwa-amp-script.js" layout="fill">
+      <div class="sticker">
+        <span>Install this webapp on your device: tap <span><svg xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 50 50" height="15px" id="Layer_1"
+              version="1.1" viewBox="0 0 50 50" width="15px" xml:space="preserve">
+              <polyline fill="none" points="17,10 25,2 33,10   " stroke="#000000" stroke-linecap="round"
+                stroke-miterlimit="10" stroke-width="2"></polyline>
+              <line fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" x1="25"
+                x2="25" y1="32" y2="2.333"></line>
+              <rect fill="none" height="50" width="50"></rect>
+              <path d="M17,17H8v32h34V17h-9" fill="none" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10"
+                stroke-width="2"></path>
+            </svg></span>and then Add to homescreen.</span>
+      </div>
+    </amp-script>
+  </div>
+
+  <app-root></app-root>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<mat-slider min="1" max="100" step="1" value="50">
+  <section class="ampHeader20 cid-sV4ccc5q0b" id="ampHeader20-35">
+
+    <!--Block parameters controls (Blue "Gear" panel) -->
+
+    <div class="container">
+      <div class="mbr-row mbr-justify-content-center">
+        <div class="mbr-section-title mbr-fonts-style mbr-bold display-5"><span class="main-text mbr-fonts-style">Liste
+            des</span><br><span class="mbr-primary mbr-fonts-style">Campagnes d'une entreprise</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials4 cid-sV4c5uNtC2" id="testimonials4-34">
+    <mat-card>
+      <div class="container">
+        <div class="mbr-row  mbr-justify-content-center">
+          <div class="mbr-col-lg-12" style="margin-bottom: 5px;">
+            <nz-card style="width:100%;" nzTitle="Filter les campagnes">
+              <div class="mbr-col-lg-12 mbr-col-md-12">
+                <input nz-input placeholder="Rechercher..." [(ngModel)]="searchField" />
+              </div>
+            </nz-card>
+          </div>
+          <div *ngFor="let campagne of campagnes |filterBy: filterFields: searchField"
+            class="mbr-col-lg-12 mbr-col-md-12">
+            <div class="card mbr-col-lg-12 mbr-col-md-12">
+              <div class="wrap">
+                <mat-card-subtitle>
+                  <mat-card-content style="text-align: left;">
+                    <h3 class="mbr-fonts-style subtitle display-4" [routerLink]="['/campagne',campagne?.uid,'admin']">
+                      <b>{{campagne?.titre}}</b>
+                    </h3>
+                    <h3 class="mbr-fonts-style subtitle display-4"> <b>Date de lancement</b> :
+                      {{campagne?.dateLancement|date: 'dd/MM/yyyy'}}</h3>
+                    <h3 class="mbr-fonts-style subtitle display-4"> <b>Date de cloture</b> :
+                      {{campagne?.dateCloture|date:'dd/MM/yyyy'}}</h3>
+                    <h3 class="mbr-fonts-style subtitle display-4"><b>Lieu</b>: {{campagne?.lieu}}</h3>
+                    <h3 class="mbr-fonts-style subtitle display-6"
+                      [innerHTML]="campagne?.description |truncate:20:'...'"> </h3><br>
+                    <div class="mbr-col-lg-12 mbr-col-md-12">
+                      <button nz-button [nzType]="'primary'" (click)="showModal(campagne)"
+                        nzwarning><span>Modifier</span></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button nz-button [nzType]="'primary'" nzDanger
+                        (click)="showDeleteConfirm(campagne)">Supprimer</button>
+                    </div>
+                  </mat-card-content>
+                </mat-card-subtitle>
+              </div>
+              <div class="img-block mbr-col-lg-6" [routerLink]="['/campagne',campagne?.uid,'admin']"
+                routerLinkActive="router-link-active">
+                <img mat-card-image [src]="campagne?.photo_path" style="object-fit: contain; max-height: 250px;"
+                  [alt]="campagne.titre" class="responsive">
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="mbr-col-lg-12">
+          <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+            (nzPageSizeChange)="changePageSize($event,entreprise_id) " nzShowSizeChanger
+            (nzPageIndexChange)="changePagination($event)" [nzPageIndex]="paginationData.current_page"
+            [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+          </nz-pagination>
+        </div>
+      </div>
+    </mat-card>
+
+
+  </section>
+
+  <nz-modal nzWidth="80%" nzOkText="Mettre à jour" nzCancelText="Annuler & Fermer" [nzVisible]="visibleModal"
+    nzTitle="Modifier une campagne" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Titre</nz-form-label>
+      <input nzSize="large" nz-input [(ngModel)]="campagneUpdate.titre" />
+      <br />
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Date lancement</nz-form-label>
+      <input type="date" nzSize="large" style="width: 100%;" nz-input [(ngModel)]="campagneUpdate.dateLancement">
+      <br />
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="titre">Date Cloture</nz-form-label>
+      <input type="date" nzSize="large" style="width: 100%;" nz-input [(ngModel)]="campagneUpdate.dateCloture">
+      <br>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="titre">Lieu</nz-form-label>
+      <input nzSize="large" nz-input [(ngModel)]="campagneUpdate.lieu">
+      <br>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Description</nz-form-label>
+      <ckeditor tagName="description" [ngModelOptions]="{standalone: true}" [(ngModel)]="campagneUpdate.description"
+        [editor]="Editor"></ckeditor>
+
+      <h3>
+        Pour modifier les états de cette campagne
+        <a [routerLink]="['/campagne',campagneUpdate?.uid,'admin']" [state]="isEditStateClicked" class="clickHere">
+          cliquez ici
+        </a>
+        .
+      </h3>
+
+    </ng-container>
+  </nz-modal>

@@ -1,0 +1,157 @@
+<section class="ampHeader13 cid-sV0ouMD0LT" id="ampHeader13-1q">
+
+  <!--Block parameters controls (Blue "Gear" panel) -->
+
+  <div class="container">
+    <div class="title mbr-px-4 align-left">
+      <h3 class="mbr-section-title mbr-fonts-style mbr-bold display-5">Créer une entreprise pour suivre les
+        campagnes de recrutement</h3>
+
+    </div>
+  </div>
+</section>
+
+<section class="ampForm13 cid-sV0kPkoYhL" id="ampForm13-1p">
+
+  <!-- Block parameters controls (Blue "Gear" panel) -->
+
+  <div class="container">
+    <div class="form__wrap rounded__10">
+      <div class="mbr-column mbr-flex mbr-jc-c" data-form-type="formoid">
+        <!--Formbuilder Form-->
+        <form #formID method="post" #form="ngForm" class="mbr-form" data-form-title="entrepriseNew"
+          id="myFormampForm131p">
+          <div class="dragArea mbr-row">
+            <div data-for="form[data][0][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field ">
+              <label for="form[data][0][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-4">Nom de
+                l'entreprise *</label>
+              <input type="hidden" name="form[data][0][0]" value="nom" id="form[data][0][0]-ampForm13-1p"
+                data-form-field="">
+              <input name="name" [(ngModel)]="entreprise.name"
+                amp-value="myStateampForm131p.formdata01ampForm131p.stateformdata01ampForm131p"
+                on="change:AMP.setState({myStateampForm131p:{formdata01ampForm131p:{valueformdata01ampForm131p: event.value}}})"
+                type="text" name="form[data][0][1]" placeholder="Nom de l'entreprise" data-form-field="nom"
+                required="required" class="field-input display-4" value="" id="form[data][0][1]-ampForm13-1p">
+              <span style="color: red;">{{errors?.name[0]}}</span>
+            </div>
+
+            <div data-for="form[data][2][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][2][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-4">Téléphone
+                *</label>
+              <input type="hidden" name="form[data][2][0]" value="telephone" id="form[data][2][0]-ampForm13-1p"
+                data-form-field="">
+              <input name="telephone" [(ngModel)]="entreprise.telephone"
+                amp-value="myStateampForm131p.formdata21ampForm131p.stateformdata21ampForm131p"
+                on="change:AMP.setState({myStateampForm131p:{formdata21ampForm131p:{valueformdata21ampForm131p: event.value}}})"
+                type="tel" name="form[data][2][1]" placeholder="+221" data-form-field="telephone" required="required"
+                class="field-input display-4" value="+221" id="form[data][2][1]-ampForm13-1p">
+              <span style="color: red;">{{errors?.telephone[0]}}</span>
+            </div>
+            <div data-for="form[data][3][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][3][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-4">Adresse
+                email *</label>
+              <input type="hidden" name="form[data][3][0]" value="E-mail" id="form[data][3][0]-ampForm13-1p"
+                data-form-field="">
+              <input name="email" [(ngModel)]="entreprise.email"
+                amp-value="myStateampForm131p.formdata31ampForm131p.stateformdata31ampForm131p"
+                on="change:AMP.setState({myStateampForm131p:{formdata31ampForm131p:{valueformdata31ampForm131p: event.value}}})"
+                type="email" name="form[data][3][1]" placeholder="contact@company.com" data-form-field="E-mail"
+                required="required" class="field-input display-4" value="" id="form[data][3][1]-ampForm13-1p">
+              <span style="color: red;">{{errors?.email[0]}}</span>
+            </div>
+            <div data-for="form[data][4][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][4][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-7">Logo
+                *</label>
+              <input name="logo" [(ngModel)]="entreprise.logo" type="hidden" name="form[data][4][0]"
+                value="entreprise.logo" id="form[data][4][0]-ampForm13-1p" data-form-field="">
+              <input amp-value="myStateampForm131p.formdata41ampForm131p.stateformdata41ampForm131p"
+                on="change:AMP.setState({myStateampForm131p:{formdata41ampForm131p:{valueformdata41ampForm131p: event.value}}})"
+                id=myInput type="file" accept="image/*" name="form[data][4][1]" placeholder="Fichier"
+                data-form-field="logo" required="required" class="field-input display-7" value=""
+                id="form[data][4][1]-ampForm13-1p" (change)="imageUpload($event)">
+              <span style="color: red;">{{errors?.logo[0]}}</span>
+            </div>
+
+            <div data-for="form[data][4][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][7][1]-ampHeader31-27" class="form-control-label mbr-fonts-style display-7">Domaines
+                d'intervention
+                *</label>
+              <input type="hidden" name="form[data][5][0]" value="domaines d'interventions"
+                id="form[data][7][0]-ampHeader31-27" data-form-field="">
+              <br> <br>
+              <nz-select style="width: 100%;" nzPlaceHolder=" Selectionnez un ou plusieurs domaine d'intervention"
+                [(ngModel)]="seletedDomaineInterventions" name="domaines d'intervention" nzAllowClear nzMode="multiple"
+                nzSize="large" (nzOpenChange)="getAllDomaineIntervention()">
+                <ng-container *ngFor="let domaineIntervention of domaineInterventions">
+                  <nz-option *ngIf="!isLoadingDomaineInterventions" [nzValue]="domaineIntervention"
+                    [nzLabel]="domaineIntervention.nom!">
+                  </nz-option>
+                </ng-container>
+                <nz-option *ngIf="isLoadingDomaineInterventions" nzDisabled nzCustomContent>
+                  <i nz-icon nzType="loading" class="loading-icon"></i>
+                  Chargement des domaines d'interventions...
+                </nz-option>
+              </nz-select>
+            </div>
+            <div data-for="form[data][5][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][5][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-7">Site Web
+                *</label>
+              <input type="hidden" name="form[data][5][0]" value="siteWeb" id="form[data][5][0]-ampForm13-1p"
+                data-form-field="">
+              <input name="siteWeb" [(ngModel)]="entreprise.siteWeb"
+                amp-value="myStateampForm131p.formdata51ampForm131p.stateformdata51ampForm131p"
+                on="change:AMP.setState({myStateampForm131p:{formdata51ampForm131p:{valueformdata51ampForm131p: event.value}}})"
+                type="url" name="form[data][5][1]" placeholder="https://" pattern="https://.*" data-form-field="siteWeb"
+                required="required" class="field-input display-7" value="" id="form[data][5][1]-ampForm13-1p">
+              <span style="color: red;">{{errors?.siteWeb[0]}}</span>
+            </div>
+            <div data-for="form[data][6][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field ">
+              <label for="form[data][6][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-4">Adresse
+                physique *</label>
+              <input type="hidden" name="form[data][6][0]" value="adresse" id="form[data][6][0]-ampForm13-1p"
+                data-form-field="">
+              <input name="adresse" [(ngModel)]="entreprise.adresse"
+                amp-value="myStateampForm131p.formdata61ampForm131p.stateformdata61ampForm131p"
+                on="change:AMP.setState({myStateampForm131p:{formdata61ampForm131p:{valueformdata61ampForm131p: event.value}}})"
+                type="text" name="form[data][6][1]" placeholder="Adresse" data-form-field="adresse" required="required"
+                class="field-input display-4" value="" id="form[data][6][1]-ampForm13-1p">
+              <span style="color: red;">{{errors?.adresse[0]}}</span>
+            </div>
+            <div data-for="form[data][7][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+              <div class="form-control-label">
+                <label for="candidatureSpontanee" class="mbr-fonts-style display-7">Autorisez-vous
+                  les candidatures spontanées ?
+                  <br>
+                </label>
+                <span>
+                  Elle consiste à autoriser des personnes à déposer
+                  leurs CVs sans que vous ne le demandez.
+                </span>
+              </div>
+              <br>
+              Non &nbsp;<nz-switch [(ngModel)]="entreprise.candidatureSpontanee" [ngModelOptions]="{standalone: true}">
+              </nz-switch>
+              &nbsp; Oui
+            </div>
+
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][8][1]">
+              <label for="form[data][8][1]-ampForm13-1p"
+                class="form-control-label mbr-fonts-style display-7">Présentation *</label>
+              <input type="hidden" name="form[data][8][0]" value="présentation" id="form[data][8][0]-ampForm13-1p"
+                data-form-field="">
+              <ckeditor tagName="description" [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="entreprise.presentation" [editor]="Editor"></ckeditor>
+              <span style="color: red;">{{errors?.presentation}}</span>
+            </div>
+            <div class="mbr-col-auto">
+              <button nz-button [nzLoading]="isEntrepriseCreating" nzType="primary" nzSize='large'
+                [disabled]="form.invalid || entreprise.logo == undefined || seletedDomaineInterventions.length == 0"
+                (click)="save()" type="submit">Enregistrer</button>
+            </div>
+          </div>
+        </form>
+        <!--Formbuilder Form-->
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,146 @@
+<section class="ampHeader27 cid-sVlIh27Wz7" id="ampHeader27-44">
+    <div class="container">
+        <div class="mbr-row align-center mbr-jc-c">
+            <div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-12">
+                <h2 class="mbr-section-subtitle mbr-black mbr-semibold mbr-fonts-style display-5">
+                    Gérer les packs SMS</h2>
+                <div class="mbr-section-btn mbr-pt-4"><a class="btn btn-black-outline display-4">Ajouter des packs</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="form cid-sVlKbLl6vQ" id="formbuilder-45">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+        <!--Formbuilder Form-->
+        <form method="post" class="mbr-form" id="myStateformbuilder45">
+          <div class="dragArea mbr-row">
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <h5 class="mbr-fonts-style mbr-fonts-style mbr-fonts-style mbr-fonts-style mbr-fonts-style display-5">
+                Créer un pack SMS</h5>
+            </div>
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <hr>
+            </div>
+            <div data-for="form[data][0][1]" class="mbr-col-lg-4 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][0][1]-formbuilder-45" class="form-control-label mbr-fonts-style display-7">Nom du pack
+                *</label>
+              <input type="hidden" name="form[data][0][0]" id="form[data][0][0]-formbuilder-45" >
+              <input amp-value="myStateformbuilder45.formdata01formbuilder45.stateformdata01formbuilder45"
+                on="change:AMP.setState({myStateformbuilder45:{formdata01formbuilder45:{valueformdata01formbuilder45: event.value}}})"
+                type="text" name="form[data][0][1]" [(ngModel)]="smsPack.nom" data-form-field="nom" required="required"
+                class="field-input display-7" id="form[data][0][1]-formbuilder-45">
+              <span style="color: red;">{{errors?.nom}}</span>
+            </div>
+            <div data-for="form[data][1][1]" class="mbr-col-lg-4 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][1][1]-formbuilder-45" class="form-control-label mbr-fonts-style display-7">Nombre
+                SMS*</label>
+              <input type="hidden" name="form[data][1][0]" id="form[data][1][0]-formbuilder-45">
+              <input amp-value="myStateformbuilder45.formdata11formbuilder45.stateformdata11formbuilder45"
+                on="change:AMP.setState({myStateformbuilder45:{formdata11formbuilder45:{valueformdata11formbuilder45: event.value}}})"
+                type="number" name="form[data][1][1]" [(ngModel)]="smsPack.nombreSms" data-form-field="nombreSms" min="1"
+                required="required" class="field-input display-7" id="form[data][1][1]-formbuilder-45">
+              <span style="color: red;">{{errors?.nombreSms}}</span>
+            </div>
+            <div data-for="form[data][2][1]" class="mbr-col-lg-3 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][2][1]" class="form-control-label mbr-fonts-style display-7">Montant *</label>
+              <input type="hidden" name="form[data][2][0]" id="form[data][2][0]-formbuilder-45"
+                data-form-field="montant">
+              <input amp-value="myStateformbuilder45.formdata21formbuilder45.stateformdata21formbuilder45"
+                on="change:AMP.setState({myStateformbuilder45:{formdata21formbuilder45:{valueformdata21formbuilder45: event.value}}})"
+                type="number" name="form[data][2][1]" [(ngModel)]="smsPack.montant" required="required" min="1" step="1"
+                data-form-field="montant" required="required" class="field-input display-7"
+                id="form[data][2][1]-formbuilder-45">
+              <span style="color: red;">{{errors?.montant}}</span>
+            </div>
+            <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12">
+              <button nz-button [nzLoading]="isCreateLoading" type="button" (click)="save()"
+                class="btn btn-primary display-7">Enregistrer</button>
+            </div>
+          </div>
+          </form>
+          <!--Formbuilder Form-->
+        </div>
+      </div>
+    </div>
+
+</section>
+
+<!--Show all pack sms-->
+<section class="ampCounters6 cid-sVlGjhRWJQ" id="ampCounters6-43">
+  <div class="container">
+      <div class="mbr-row">
+          <div *ngFor="let smsPack of smsPacks" class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4 mt-3">
+              <div class="card-wrapper rounded__10 mbr-flex mbr-column">
+                  <div class="card-img">
+                      <div class="art align-center rounded__10" [ngClass]="{'item1': smsPack.nombreSms<=100  , 'item2': smsPack.nombreSms>=200 , 'item3':  smsPack.nombreSms>=300,  'item4': smsPack.nombreSms>=400 }">
+                          <span class="mbr-iconfont mbr-iconfont-btn rounded__10 mobi-mbri-chat mobi-mbri"><svg
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%">
+                <path d="M0 23.4V2h24v15H6.4L0 23.4zM2 4v14.6L5.6 15H22V4H2z"></path>
+              </svg></span>
+                      </div>
+                      <div class="image-text mbr-semibold mbr-fonts-style mbr-black display-2">{{smsPack?.nombreSms}}<span class="icon">sms</span>
+                      </div>
+                  </div>
+                  <div class="card-box">
+                      <h4 class="card-subtitle mbr-fonts-style mbr-bold display-4">{{smsPack?.nom }}</h4>
+                  </div>
+                  <div class="card-box" >
+                    <span  style="margin-left: 100; background-color:gainsboro; padding: 5px; margin-bottom: 3px;" class="card-subtitle mbr-fonts-style mbr-bold display-4">{{smsPack?.montant }} FCFA </span>
+                  </div>
+                  <div style="display: flex; margin-right: -88px;" >
+                    <button nz-button [nzType]="'primary'"
+                      (click)="showModalEdit(smsPack)"><span>Modifier</span></button>
+                    <button nz-button (click)="showModalDelete(smsPack)" nzDanger style="width: 80px;"
+                      [nzType]="'primary'"><span>Supprimer</span></button>
+                  </div>
+              </div>
+          </div>
+          <hr>
+          <div class="mbr-col-lg-12">
+            <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+              (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)"
+              [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+            </nz-pagination>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!--Definition du modal pour modifier pack sms-->
+<nz-modal [(nzVisible)]="isVisibleModalEdit" nzTitle="Modification pack sms" (nzOnCancel)="handleCancel()">
+    <div *nzModalContent>
+        <form>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="5" nzFor="nom"> Nom Du Pack</nz-form-label>
+                <input id="nom" [(ngModel)]="editSmsPack.nom" type="text" required="required" nz-input name="nom" />
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="5" nzFor="nombreSms">Nombre Sms</nz-form-label>
+                <input id="nombreSms" [(ngModel)]="editSmsPack.nombreSms" type="number" required="required" nz-input name="nombreSms" />
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label [nzSpan]="5" nzFor="montant">Montant (CFA)</nz-form-label>
+                <input id="montant" [(ngModel)]="editSmsPack.montant" type="number" required="required" nz-input name="montant" />
+            </nz-form-item>
+        </form>
+    </div>
+    <div *nzModalFooter>
+        <button nz-button nzType="default" (click)="handleCancel()">Annuler</button>
+        <button nz-button nzType="primary" style="background-color: black; color:  white;" (click)="updateSmsPack(editSmsPack)">Modifier</button>
+    </div>
+</nz-modal>
+
+<!--Definition du modal pour supprimer sms_pack-->
+<nz-modal [(nzVisible)]="isVisibleModalDelete" nzTitle="Suppression pack sms" (nzOnCancel)="handleCancel()">
+    <div *nzModalContent>
+        <p><span style="color: red;">Attention!</span> Cette action est irréversible, ce <b>Pack SMS</b> sera définitivement supprimé
+        </p>
+    </div>
+    <div *nzModalFooter>
+        <button nz-button nzType="default" (click)="handleCancel()">Annuler</button>
+        <button nz-button nzDanger (click)="deleteSmsPack(delSmsPack)" >Supprimer</button>
+    </div>
+</nz-modal>

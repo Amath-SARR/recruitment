@@ -1,0 +1,52 @@
+<section class="ampHeader20 cid-sV4ccc5q0b" id="ampHeader20-35">
+
+  <!--Block parameters controls (Blue "Gear" panel) -->
+
+  <div class="container">
+    <div class="title mbr-px-4 align-left">
+      <div class="line-wrap">
+        <div class="line"></div>
+      </div>
+      <div class="mbr-section-title mbr-fonts-style mbr-bold display-5"><span class="main-text mbr-fonts-style">Liste
+          des</span><br><span class="mbr-primary mbr-fonts-style">Campagnes de recrutement</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials4 cid-sV4c5uNtC2" id="testimonials4-34">
+  <div class="container">
+    <div class="mbr-row">
+      <div *ngFor="let campagne of campagnes" class="mbr-col-lg-6 mbr-col-md-12">
+        <div class="card" [routerLink]="['/campagne',campagne.uid,'admin']">
+          <div class="wrap">
+            <h2 class="mbr-fonts-style title display-4">{{ campagne.entreprise?.name}}</h2>
+            <h3 class="mbr-fonts-style subtitle display-4">{{ campagne.entreprise?.telephone }}</h3>
+            <p class="mbr-fonts-style mbr-text display-6">{{ campagne.titre }}</p>
+          </div>
+          <div class="img-wrap">
+            <img [src]="campagne.photo_path" style="object-fit: contain; max-height: 250px;" [alt]="campagne.titre" class="responsive">
+            <!-- <amp-img class="mobirise-loader" src="{{ campagne.photo_path }}" layout="responsive"
+              width="279.891" height="279.891" alt="">
+              <div placeholder="" class="placeholder">
+                <div class="mobirise-spinner">
+                  <em></em>
+                  <em></em>
+                  <em></em>
+                </div>
+              </div>
+              <a [routerLink]="['/campagne',campagne.uid,'admin']"></a>
+            </amp-img> -->
+            
+          </div>
+        </div>
+      </div>
+      <div class="mbr-col-lg-12">
+        <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+          (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)"
+          [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+        </nz-pagination>
+      </div>
+    </div>
+  </div>
+
+</section>

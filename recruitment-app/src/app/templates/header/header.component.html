@@ -1,0 +1,126 @@
+<section class="ampMenu2 menu horizontal-menu cid-sUX22uYNxM" id="ampMenu2-j">
+
+  <!-- <div class="menu-wrapper"> -->
+  <nav class="navbar navbar-dropdown navbar-expand-lg navbar-fixed-top">
+    <div class="menu-container container">
+      <!-- SHOW LOGO -->
+      <div class="navbar-brand">
+        <div class="navbar-logo">
+          <amp-img src="assets/images/mbr-90x90.png" layout="responsive" width="42" height="42" alt=""
+            class="mobirise-loader">
+            <div placeholder="" class="placeholder">
+              <div class="mobirise-spinner">
+                <em></em>
+                <em></em>
+                <em></em>
+              </div>
+            </div>
+            <a routerLink="/"></a>
+          </amp-img>
+        </div>
+        <span class="navbar-caption-wrap"><a class="navbar-caption mbr-semibold text-black text-primary display-5"
+            routerLink="">Recrutore</a></span>
+      </div>
+      <!-- SHOW LOGO END -->
+      <!-- COLLAPSED MENU -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- NAVBAR ITEMS -->
+        <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+          <li *ngIf="currentUser" class="nav-item dropdown">
+            <a class="nav-link mbr-regular link text-black text-primary dropdown-toggle display-4"
+              data-toggle="dropdown-submenu" aria-expanded="false">Mon espace</a>
+            <div class="dropdown-menu">
+              <a *ngIf="currentUser?.entreprises_count"
+                class="mbr-regular text-black text-primary dropdown-item display-4" [routerLink]="['/mes-entreprises']"
+                routerLinkActive="router-link-active">Mes
+                entreprises</a>
+              <a *ngIf="currentUser?.followed_entreprises_count != 0"
+                class="mbr-regular text-black text-primary dropdown-item display-4"
+                [routerLink]="['/entreprises-favorites']" routerLinkActive="router-link-active">Mes
+                enregistrements</a>
+              <a class="mbr-regular text-black text-primary dropdown-item display-4" routerLink="/mes-campagnes">Mes
+                campagnes</a><a class="mbr-regular text-black text-primary dropdown-item display-4"
+                [routerLink]=" ['/mes-candidatures']">Mes candidatures</a>
+              <a class="mbr-regular text-black text-primary dropdown-item display-4" href="mes-entretiens.html">Mes
+                entretiens</a><a class="mbr-regular text-black text-primary dropdown-item display-4"
+                href="notifications.html">Notifications (20)</a>
+            </div>
+          </li>
+          <li *ngIf="currentUser?.type=='admin'" class="nav-item dropdown"><a
+              class="nav-link link mbr-regular text-black dropdown-toggle display-4" aria-expanded="true"
+              data-toggle="dropdown-submenu">Admin</a>
+            <div class="dropdown-menu"><a class="mbr-regular text-black dropdown-item text-primary display-4"
+                [routerLink]="['/admin','user']" routerLinkActive="router-link-active"
+                aria-expanded="false">Utilisateurs de la plateforme</a><a
+                class="mbr-regular text-black dropdown-item text-primary display-4"
+                [routerLink]="['/admin','entreprise']" aria-expanded="false">Entreprises soumises</a><a
+                class="mbr-regular text-black dropdown-item text-primary display-4" [routerLink]="['/admin','campagne']"
+                aria-expanded="false">Campagnes de recrutement</a>
+              <a class="mbr-regular text-black dropdown-item text-primary display-4"
+                [routerLink]="['/admin','domaineIntervention']" aria-expanded="false">Domaines des entreprises</a><a
+                class="mbr-regular text-black dropdown-item text-primary display-4"
+                [routerLink]="['/admin','categorieemploi']" aria-expanded="false">Catégories d'emploi</a><a
+                class="mbr-regular text-black dropdown-item text-primary display-4" [routerLink]="['/admin','statuts']"
+                aria-expanded="false">Statuts des candidatures</a>
+              <a class="mbr-regular text-black dropdown-item text-primary display-4"
+                [routerLink]="['/admin','typeoffre']" aria-expanded="false">Types offre<br></a>
+              <a class="mbr-regular text-black dropdown-item text-primary display-4"
+                [routerLink]="['/admin','hashtags']" aria-expanded="false">Gestion des Hashtags<br></a>
+              <a class="mbr-regular text-black dropdown-item text-primary display-4" [routerLink]="['/admin','smspack']"
+                aria-expanded="false">Pack SMS<br></a>
+            </div>
+          </li>
+          <li *ngIf="currentUser" class="nav-item dropdown"><a
+              class="nav-link link mbr-regular text-black dropdown-toggle display-4" aria-expanded="false"
+              data-toggle="dropdown-submenu">{{ currentUser.name }}</a>
+            <div class="dropdown-menu"><a class="mbr-regular text-black dropdown-item text-primary display-4"
+                [routerLink]="['/profil']" aria-expanded="false">Mon profil</a>
+              <a (click)="logout()" class="mbr-regular text-black dropdown-item display-4"
+                aria-expanded="false">Déconnexion</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link mbr-regular link text-black display-4" href="#">Aides</a>
+          </li>
+        </ul>
+        <!-- NAVBAR ITEMS END -->
+        <!-- SOCIAL ICON -->
+        <div class="menu-social-list">
+          <a href="https://www.linkedin.com/company/bambogroupsn/" target="_blank">
+            <span class="amp-iconfont fa-linkedin-square fa"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path
+                  d="M365 1414h231v-694h-231v694zm246-908q-1-52-36-86t-93-34-94.5 34-36.5 86q0 51 35.5 85.5t92.5 34.5h1q59 0 95-34.5t36-85.5zm585 908h231v-398q0-154-73-233t-193-79q-136 0-209 117h2v-101h-231q3 66 0 694h231v-388q0-38 7-56 15-35 45-59.5t74-24.5q116 0 116 157v371zm468-998v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z">
+                </path>
+              </svg></span>
+          </a>
+          <a href="https://www.facebook.com/bambogroupsn" target="_blank">
+            <span class="amp-iconfont fa-facebook-square fa"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path
+                  d="M1376 128q119 0 203.5 84.5t84.5 203.5v960q0 119-84.5 203.5t-203.5 84.5h-188v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-532q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960z">
+                </path>
+              </svg></span>
+          </a>
+        </div>
+        <!-- SOCIAL ICON END -->
+        <!-- SHOW BUTTON -->
+
+        <!-- SHOW BUTTON END -->
+      </div>
+      <!-- COLLAPSED MENU END -->
+
+      <button on="tap:sidebar.toggle" class="ampstart-btn hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <!-- AMP plug -->
+
+  <!-- </div> -->
+</section>

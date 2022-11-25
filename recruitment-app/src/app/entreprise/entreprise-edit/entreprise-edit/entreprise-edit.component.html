@@ -1,0 +1,98 @@
+<section class="ampHeader13 cid-sV0ouMD0LT" id="ampHeader13-1q">
+
+    <!--Block parameters controls (Blue "Gear" panel) -->
+
+    <div class="container">
+        <div class="title mbr-px-4 align-left">
+            <h3 class="mbr-section-title mbr-fonts-style mbr-bold display-5">Mettre à jour une entreprise</h3>
+
+        </div>
+    </div>
+</section>
+
+<section class="ampForm13 cid-sV0kPkoYhL" id="ampForm13-1p">
+
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+
+    <div class="container">
+        <div class="form__wrap rounded__10">
+            <div class="mbr-column mbr-flex mbr-jc-c" data-form-type="formoid">
+                <!--Formbuilder Form-->
+                <form #updateEntrepriseForm="ngForm" method="post" class="mbr-form" data-form-title="entrepriseNew" id="myFormampForm131p" on="submit:myFormampForm131p.clear;submit-success:AMP.setState({myStateampForm131p:{formdata01ampForm131p:{stateformdata01ampForm131p: '', valueformdata01ampForm131p: ''}, formdata21ampForm131p:{stateformdata21ampForm131p: '', valueformdata21ampForm131p: ''}, formdata31ampForm131p:{stateformdata31ampForm131p: '', valueformdata31ampForm131p: ''}, formdata41ampForm131p:{stateformdata41ampForm131p: '', valueformdata41ampForm131p: ''}, formdata51ampForm131p:{stateformdata51ampForm131p: '', valueformdata51ampForm131p: ''}, formdata61ampForm131p:{stateformdata61ampForm131p: '', valueformdata61ampForm131p: ''}, formdata71ampForm131p:{stateformdata71ampForm131p: '', valueformdata71ampForm131p: ''}, formdata71ampForm131p:{stateformdata71ampForm131p: '', valueformdata71ampForm131p: ''}, formdata81ampForm131p:{stateformdata81ampForm131p: '', valueformdata81ampForm131p: ''}}});submit-error:AMP.setState({myStateampForm131p:{formdata01ampForm131p:{stateformdata01ampForm131p: myStateampForm131p.formdata01ampForm131p.valueformdata01ampForm131p}, formdata21ampForm131p:{stateformdata21ampForm131p: myStateampForm131p.formdata21ampForm131p.valueformdata21ampForm131p}, formdata31ampForm131p:{stateformdata31ampForm131p: myStateampForm131p.formdata31ampForm131p.valueformdata31ampForm131p}, formdata41ampForm131p:{stateformdata41ampForm131p: myStateampForm131p.formdata41ampForm131p.valueformdata41ampForm131p}, formdata51ampForm131p:{stateformdata51ampForm131p: myStateampForm131p.formdata51ampForm131p.valueformdata51ampForm131p}, formdata61ampForm131p:{stateformdata61ampForm131p: myStateampForm131p.formdata61ampForm131p.valueformdata61ampForm131p}, formdata71ampForm131p:{stateformdata71ampForm131p: myStateampForm131p.formdata71ampForm131p.valueformdata71ampForm131p}, formdata71ampForm131p:{stateformdata71ampForm131p: myStateampForm131p.formdata71ampForm131p.valueformdata71ampForm131p}, formdata81ampForm131p:{stateformdata81ampForm131p: myStateampForm131p.formdata81ampForm131p.valueformdata81ampForm131p}}})">
+                    <div class="dragArea mbr-row">
+                        <div data-for="form[data][0][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field ">
+                            <label for="form[data][0][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-4">Nom de l'entreprise *</label>
+                            <input type="hidden" name="form[data][0][0]" value="nom" id="form[data][0][0]-ampForm13-1p" data-form-field="">
+                            <input amp-value="myStateampForm131p.formdata01ampForm131p.stateformdata01ampForm131p" on="change:AMP.setState({myStateampForm131p:{formdata01ampForm131p:{valueformdata01ampForm131p: event.value}}})" type="text" name="form[data][0][1]" placeholder="Nom de l'entreprise"
+                                data-form-field="nom" required="required" class="field-input display-4" id="form[data][0][1]-ampForm13-1p" [(ngModel)]="entreprise.name">
+                            <span style="color: red;">{{errors?.name}}</span>
+                        </div>
+                        <!--<div data-for="form[data][1][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+                            <label for="form[data][1][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-4">Domaine *</label>
+                            <input type="hidden" name="form[data][1][0]" value="select" id="form[data][1][0]-ampForm13-1p" data-form-field="">
+                            <select name="form[data][1][1]" data-form-field="select" required="required" class="field-input display-4" id="form[data][1][1]-ampForm13-1p">
+                              <option value="Choisir le domaine">Choisir le domaine</option>
+                              <option value="Informatique">Informatique</option>
+                              <option value="Electricité">Electricité</option>
+                              <option value="Education">Education</option>
+                            </select>
+                        </div>-->
+                        <div data-for="form[data][2][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+                            <label for="form[data][2][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-4">Téléphone</label>
+                            <input type="hidden" name="form[data][2][0]" value="telephone" id="form[data][2][0]-ampForm13-1p" data-form-field="">
+                            <input amp-value="myStateampForm131p.formdata21ampForm131p.stateformdata21ampForm131p" type="tel" name="form[data][2][1]" placeholder="+221" pattern="*" data-form-field="telephone" required="required" class="field-input display-4" id="form[data][2][1]-ampForm13-1p"
+                                [(ngModel)]="entreprise.telephone">
+                            <span style="color: red;">{{errors?.telephone}}</span>
+                        </div>
+                        <div data-for="form[data][3][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+                            <label for="form[data][3][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-4">Adresse email *</label>
+                            <input type="hidden" name="form[data][3][0]" value="E-mail" id="form[data][3][0]-ampForm13-1p" data-form-field="">
+                            <input amp-value="myStateampForm131p.formdata31ampForm131p.stateformdata31ampForm131p" type="email" name="form[data][3][1]" placeholder="contact@company.com" data-form-field="E-mail" required="required" class="field-input display-4" id="form[data][3][1]-ampForm13-1p"
+                                [(ngModel)]="entreprise.email">
+                            <span style="color: red;">{{errors?.email}}</span>
+                        </div>
+                        <div data-for="form[data][5][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+                            <label for="form[data][5][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-7">Site Web *</label>
+                            <input type="hidden" name="form[data][5][0]" value="siteWeb" id="form[data][5][0]-ampForm13-1p" data-form-field="">
+                            <input amp-value="myStateampForm131p.formdata51ampForm131p.stateformdata51ampForm131p" type="url" name="form[data][5][1]" placeholder="https://" pattern="https://.*" data-form-field="siteWeb" required="required" class="field-input display-7" id="form[data][5][1]-ampForm13-1p"
+                                [(ngModel)]="entreprise.siteWeb">
+                            <span style="color: red;">{{errors?.siteWeb}}</span>
+                        </div>
+                        <div data-for="form[data][6][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field ">
+                            <label for="form[data][6][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-4">Adresse physique *</label>
+                            <input type="hidden" name="form[data][6][0]" value="adresse" id="form[data][6][0]-ampForm13-1p" data-form-field="">
+                            <input amp-value="myStateampForm131p.formdata61ampForm131p.stateformdata61ampForm131p" type="text" name="form[data][6][1]" placeholder="Adresse" data-form-field="adresse" required="required" class="field-input display-4" id="form[data][6][1]-ampForm13-1p"
+                                [(ngModel)]="entreprise.adresse">
+                            <span style="color: red;">{{errors?.adresse}}</span>
+                        </div>
+                        <div data-for="form[data][7][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+                            <div class="form-control-label">
+                                <label for="candidatureSpontanee" class="mbr-fonts-style display-7">Autorisez-vous
+                              les candidatures spontanées ?
+                              <br>
+                            </label>
+                                <span>
+                              Elle consiste à autoriser des personnes à déposer
+                              leurs CVs sans que vous ne le demandez.
+                            </span>
+                            </div>
+                            <br> Non &nbsp;
+                            <nz-switch [(ngModel)]="entreprise.candidatureSpontanee" [ngModelOptions]="{standalone: true}">
+                            </nz-switch>
+                            &nbsp; Oui
+                        </div>
+                        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][8][1]">
+                            <label for="form[data][8][1]-ampForm13-1p" class="form-control-label mbr-fonts-style display-7">Présentation</label>
+                            <input type="hidden" name="form[data][8][0]" value="présentation" id="form[data][8][0]-ampForm13-1p" data-form-field="">
+                            <ckeditor tagName="description" [ngModelOptions]="{standalone: true}" [(ngModel)]="entreprise.presentation" [editor]="Editor"></ckeditor>
+                            <span style="color: red;">{{errors?.presentation}}</span>
+                        </div>
+                        <div class="mbr-col-lg-4 mbr-col-md-6 mbr-col-sm-12 field field__btn mbr-flex">
+                            <button nz-button [nzLoading]="isUpdating" type="submit" [disabled]="updateEntrepriseForm.invalid" class="btn btn-md btn-form btn-primary display-4" (click)="update(entreprise)">Mettre à jour</button></div>
+                    </div>
+                </form>
+                <!--Formbuilder Form-->
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,59 @@
+<section class="ampHeader27 cid-sWFUtT30kf" id="ampHeader27-4q">
+
+
+  <div class="container">
+    <div class="mbr-row align-center mbr-jc-c">
+      <div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-12">
+        <h1 class="mbr-section-title mbr-black mbr-bold mbr-fonts-style display-4">Enregistrements</h1>
+        <h2 class="mbr-section-subtitle mbr-black mbr-semibold mbr-fonts-style mbr-pt-3 display-5">Si vous suivez une
+          entreprise, vous allez être notifiés de toutes les campagnes de l'entreprise...</h2>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ampClient7 cid-sWFUKL5fvA" id="ampClient7-4r">
+
+
+  <div class="container">
+    <div class="title mbr-pb-5">
+      <h4 class="mbr-section-subtitle mbr-semibold mbr-pb-1 text-primary mbr-fonts-style display-4">Favorites</h4>
+      <h3 class="mbr-section-title mbr-bold mbr-fonts-style display-5">Liste des entreprises enregistrées...</h3>
+      <br>
+      <nz-card style="width:100%;" nzTitle="Filtrer les entreprises suivies">
+        <div class="mbr-row">
+          <div class="mbr-col-lg-6 mbr-col-sm-12">
+            <input nz-input placeholder="Rechercher..." [(ngModel)]="searchField" />
+          </div>
+        </div>
+      </nz-card>
+    </div>
+    <div class="mbr-row mbr-px-2 gallery-wrap mbr-jc-c">
+      <div class="mbr-col-md-12 mbr-col-sm-12 gallery-row row-first flex-wrap mbr-col-lg-12 mbr-flex">
+        <ng-container *ngFor="let entrepriseFollowed of entreprisesFollowed |filterBy: filterFields: searchField">
+          <div class="gallery-item mbr-col-sm-12 mbr-col-lg-3 mbr-col-md-8 md-pb mbr-p-2">
+            <div class="gallery-img-wrap">
+              <img nz-tooltip [nzTooltipTitle]="entrepriseFollowed.name" [src]="entrepriseFollowed.logo_path"
+                alt="logo entreprise {{entrepriseFollowed.name}}" [routerLink]="['/entreprise/',entrepriseFollowed.uid]"
+                routerLinkActive="router-link-active">
+              <!-- <amp-img class="mobirise-loader" src="assets/images/6.png" layout="responsive" height="134.188"
+                width="243.97818181818178" alt="image">
+                <div placeholder="" class="placeholder">
+                  <div class="mobirise-spinner">
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                  </div>
+                </div>
+
+              </amp-img> -->
+
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

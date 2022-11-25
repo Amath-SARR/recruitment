@@ -1,0 +1,134 @@
+<section class="ampHeader27 cid-sVgE8WjzE4" id="ampHeader27-3k">
+  <div class="container">
+    <div class="mbr-row align-center mbr-jc-c">
+      <div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-12">
+
+        <h2 class="mbr-section-subtitle mbr-black mbr-semibold mbr-fonts-style display-5"><br>
+          Les types d'offres</h2>
+        <div class="mbr-section-btn mbr-pt-4"><a class="btn btn-black display-4" (click)="view_Ad_TypeOffre() ">Ajouter
+            un type d'offre</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="visible" class="form cid-sVgEyDdQJu" id="formbuilder-3l">
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+        <!--Formbuilder Form-->
+        <form method="POST" class="mbr-form" id="myFormformbuilder3l">
+          <div class="mbr-row">
+            <div submit-success="" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12"></div>
+            <template data-form-alert="" type="amp-mustache"></template>
+
+            <div submit-error="" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12"></div>
+            <template data-form-alert="" type="amp-mustache">Failed! {{errors}}</template>
+
+          </div>
+          <div class="dragArea mbr-row">
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <h4 class="mbr-fonts-style mbr-fonts-style display-5">Nouveau type d'offre</h4>
+            </div>
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <hr>
+            </div>
+            <div class="mbr-col-lg-4 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][0][1]">
+              <label for="form[data][0][1]-formbuilder-3l"
+                class="form-control-label mbr-fonts-style display-7">Nom*</label>
+              <input type="hidden" name="form[data][0][0]" value="name" id="form[data][0][0]-formbuilder-3l"
+                data-form-field="">
+              <input [(ngModel)]="typeOffreModel.name"
+                amp-value="myStateformbuilder3f.formdata01formbuilder3f.stateformdata01formbuilder3f"
+                on="change:AMP.setState({myStateformbuilder3l:{formdata01formbuilder3l:{valueformdata01formbuilder3l: event.value}}})"
+                type="text" name="form[data][0][1]" data-form-field="name" class="field-input display-7"
+                required="required" value="" id="form[data][0][1]-formbuilder-3l">
+            </div>
+            <div class="mbr-col-lg-4 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][1][1]">
+              <label for="form[data][1][1]-formbuilder-3l"
+                class="form-control-label mbr-fonts-style display-7">Description</label>
+              <input type="hidden" name="form[data][1][0]" value="description" id="form[data][1][0]-formbuilder-3l"
+                data-form-field="">
+              <input [(ngModel)]="typeOffreModel.description"
+                amp-value="myStateformbuilder3f.formdata01formbuilder3f.stateformdata01formbuilder3f"
+                on="change:AMP.setState({myStateformbuilder3l:{formdata11formbuilder3l:{valueformdata11formbuilder3l: event.value}}})"
+                type="text" name="form[data][1][1]" data-form-field="description" class="field-input display-7" value=""
+                id="form[data][1][1]-formbuilder-3l">
+            </div>
+            <div class="mbr-col-lg-4 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][2][1]">
+              <label for="form[data][2][1]-formbuilder-3l"
+                class="form-control-label mbr-fonts-style display-7">Type</label>
+              <input type="hidden" name="form[data][2][0]" value="type" id="form[data][2][0]-formbuilder-3l"
+                data-form-field="">
+
+              <select [(ngModel)]="typeOffreModel.type" name="form[data][2][1]" data-form-field="type"
+                class="form-select field-input display-7" id="form[data][2][1]-formbuilder-3z">
+                <option value="Selectionner une valeur">Selectionner une valeur</option>
+                <option value="contrat">contrat</option>
+                <option value="lieu">lieu</option>
+                <option value="durée">durée</option>
+              </select>
+
+              <!-- <input type="hidden" name="form[data][2][0]" value="description" id="form[data][2][0]-formbuilder-3l" data-form-field=""> -->
+              <!-- <input [(ngModel)]="typeOffreModel.type" amp-value="myStateformbuilder3f.formdata01formbuilder3f.stateformdata01formbuilder3f" on="change:AMP.setState({myStateformbuilder3l:{formdata11formbuilder3l:{valueformdata11formbuilder3l: event.value}}})"
+                                type="text" name="form[data][2][2]" data-form-field="description" class="field-input display-7" value="" id="form[data][2][1]-formbuilder-3l">
+                                -->
+            </div>
+            <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12">
+              <button nz-button [nzLoading]="istypeOffreCreating" type="button" (click)="save()"
+                class="btn btn-primary display-7">Enregistrer</button>
+            </div>
+          </div>
+        </form>
+        <!--Formbuilder Form-->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features9 cid-sVbt262sOS" id="features9-3b">
+
+  <div class="container">
+    <div class="mbr-row mbr-justify-content-center">
+      <div *ngFor="let typeOffre of typeOffres |filterBy: filterFields: searchField" class="mbr-col-lg-6 mbr-col-md-10">
+
+        <div class="wrap">
+
+          <div class="text-wrap vcenter">
+            <h5 class="mbr-fonts-style  mbr-section-title display-5">{{typeOffre.name}}</h5>
+            <p class="mbr-fonts-style text mbr-text mbr-black display-6">{{typeOffre.description}}</p>
+            <h5 class="mbr-fonts-style  mbr-section-title display-5">{{typeOffre.type}}</h5>
+            <button nz-button [nzType]="'primary'" (click)="showModal(typeOffre)"
+              nzwarning><span>Modifier</span></button>&nbsp;&nbsp;
+            <button nz-button nzType="primary" nzDanger (click)="showDeleteConfirm(typeOffre)">Supprimer</button>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="mbr-col-lg-12">
+        <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+          (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)"
+          [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+        </nz-pagination>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
+
+<nz-modal [nzVisible]="isVisible" nzTitle="Modifier Type d'offre" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="name">Nom</nz-form-label>
+    <input nz-input [(ngModel)]="typeOffre.name" />
+    <br />
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="description">Description</nz-form-label>
+    <input nz-input [(ngModel)]="typeOffre.description" /><br />
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="type">Type d'offre</nz-form-label>
+    <input nz-input [(ngModel)]="typeOffre.type" />
+  </ng-container>
+</nz-modal>

@@ -1,0 +1,90 @@
+<section class="ampHeader7 cid-sV42IJX1QX" id="ampHeader7-2p">
+
+  <div class="mbr-overlay"></div>
+  <div class="container">
+    <div class="mbr-row mbr-black mbr-jc-c main-row">
+      <div class="title-wrap mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-12 align-center mbr-pb-4">
+        <div class="title-block mbr-col-sm-12 mbr-col-md-12">
+          <h1 class="mbr-section-title mbr-fonts-style mbr-bold display-2">{{entreprise?.name}}</h1>
+
+          <p class="mbr-text mbr-fonts-style mbr-pt-2 display-7">Inviter un collaborateur</p>
+
+        </div>
+      </div>
+      <div class="form-wrap mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-12">
+        <div class="form-block mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-8 mbr-m-auto">
+          <div class="mbr-overlay"></div>
+          <h3 class="form-title mbr-fonts-style mbr-black mbr-pb-2 display-5">Inviter un collaborateur
+          </h3>
+          <h4 class="mbr-fonts-style form-subtitle mbr-black mbr-pb-4 display-7">Remplissez ce formulaire
+            pour inviter quelqu'un à collaborer pour l'entreprise...</h4>
+          <div data-form-type="formoid">
+            <!--Formbuilder Form-->
+            <form #invitationNewForm="ngForm" class="mbr-form" data-form-title="collaborateurNew" id="myFormampHeader72p">
+              <div class="dragArea mbr-form-row">
+                <div data-for="form[data][0][1]" class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-6 field ">
+                  <label for="form[data][0][1]-ampHeader7-2p"
+                    class="form-control-label mbr-fonts-style display-7">Prénoms *</label>
+                  <input type="hidden" name="form[data][0][0]" value="firstName" id="form[data][0][0]-ampHeader7-2p"
+                    data-form-field="">
+                  <input [(ngModel)]="invitation.prenoms" amp-value="myStateampHeader72p.formdata01ampHeader72p.stateformdata01ampHeader72p"
+                    on="change:AMP.setState({myStateampHeader72p:{formdata01ampHeader72p:{valueformdata01ampHeader72p: event.value}}})"
+                    type="text" name="form[data][0][1]" placeholder="Prénoms" data-form-field="firstName"
+                    required="required" class="field-input display-7" value="" id="form[data][0][1]-ampHeader7-2p">
+                </div>
+                <div data-for="form[data][1][1]" class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-6 field ">
+                  <label for="form[data][1][1]-ampHeader7-2p" class="form-control-label mbr-fonts-style display-7">Nom
+                    de famille
+                    *</label>
+                  <input type="hidden" name="form[data][1][0]" value="lastName" id="form[data][1][0]-ampHeader7-2p"
+                    data-form-field="">
+                  <input  [(ngModel)]="invitation.nom" amp-value="myStateampHeader72p.formdata11ampHeader72p.stateformdata11ampHeader72p"
+                    on="change:AMP.setState({myStateampHeader72p:{formdata11ampHeader72p:{valueformdata11ampHeader72p: event.value}}})"
+                    type="text" name="form[data][1][1]" placeholder="Last Name" data-form-field="lastName"
+                    required="required" class="field-input display-7" value="" id="form[data][1][1]-ampHeader7-2p">
+                </div>
+                <div data-for="form[data][2][1]" class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-6 field ">
+                  <label for="form[data][2][1]-ampHeader7-2p"
+                    class="form-control-label mbr-fonts-style display-7">Adresse email *</label>
+                  <input type="hidden" name="form[data][2][0]" value="email" id="form[data][2][0]-ampHeader7-2p"
+                    data-form-field="">
+                  <input [(ngModel)]="invitation.email" amp-value="myStateampHeader72p.formdata21ampHeader72p.stateformdata21ampHeader72p"
+                    on="change:AMP.setState({myStateampHeader72p:{formdata21ampHeader72p:{valueformdata21ampHeader72p: event.value}}})"
+                    type="email" name="form[data][2][1]" placeholder="E-mail Address" data-form-field="email"
+                    required="required" class="field-input display-7" value="" id="form[data][2][1]-ampHeader7-2p">
+                </div>
+                <div data-for="form[data][3][1]" class="mbr-col field">
+                  <label for="form[data][3][1]-ampHeader7-2p"
+                    class="form-control-label mbr-fonts-style display-7">Numéro de téléphone
+                    *</label>
+                  <input type="hidden" name="form[data][3][0]" value="telephone" id="form[data][3][0]-ampHeader7-2p"
+                    data-form-field="">
+                  <input [(ngModel)]="invitation.telephone" amp-value="myStateampHeader72p.formdata31ampHeader72p.stateformdata31ampHeader72p"
+                    on="change:AMP.setState({myStateampHeader72p:{formdata31ampHeader72p:{valueformdata31ampHeader72p: event.value}}})"
+                    type="tel" name="form[data][3][1]" placeholder="+221" data-form-field="telephone"
+                     class="field-input display-7" value="" id="form[data][3][1]-ampHeader7-2p">
+                </div>
+                <!-- <div data-for="form[data][4][1]" class="mbr-col-md-12 mbr-col-sm-12 text-field field">
+                  <label for="form[data][4][1]-ampHeader7-2p"
+                    class="form-control-label mbr-fonts-style display-7">Message *</label>
+                  <input type="hidden" name="form[data][4][0]" value="message" id="form[data][4][0]-ampHeader7-2p"
+                    data-form-field="">
+                  <textarea
+                    on="change:AMP.setState({myStateampHeader72p:{formdata41ampHeader72p:{valueformdata41ampHeader72p: event.value}}})"
+                    defaulttext="myStateampHeader72p.formdata41ampHeader72p.stateformdata41ampHeader72p"
+                    name="form[data][4][1]" placeholder="Saisissez un message d'invitation" data-form-field="message"
+                    required="required" class="field-input display-7" id="form[data][4][1]-ampHeader7-2p"></textarea>
+                </div> -->
+                <div class="mbr-col-md-12 mbr-col-sm-12 mbr-section-btn field">
+                  <button (click)="save()" style="float: right;" [disabled]="invitationNewForm.invalid" nz-button [nzLoading]="isInvitationCreating" type="button">Envoyer</button>
+                </div>
+              </div>
+            </form>
+            <!--Formbuilder Form-->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

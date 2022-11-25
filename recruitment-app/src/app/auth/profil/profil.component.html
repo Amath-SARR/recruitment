@@ -1,0 +1,162 @@
+<section class="team2 cid-sV40A477LY" id="team2-2l">
+  <div class="container">
+    <div class="mbr-row wrapper">
+      <div class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-6 image">
+        <nz-spin [nzSpinning]="isPhotoUploading">
+          <img (click)="photoInput.click()" [src]="user.photo_path" height="500" width="450" layout="responsive" />
+        </nz-spin>
+        <input #photoInput hidden (change)="handleFileSelect($event)" accept="image/*" type="file" name="photo"
+          id="photo">
+      </div>
+      <div class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-6 mbr-flex right-block">
+        <div class="text-block align-left">
+          <div class="title align-center">
+            <h3 class="mbr-fonts-style card__title mbr-bold mbr-section-title mbr-white display-5">
+              {{user?.name}}
+            </h3>
+            <h3 class="mbr-fonts-style card__text mbr-section-subtitle mbr-bold display-12">
+              {{user?.type}}
+            </h3>
+          </div>
+
+          <div class="content__wrapper">
+            <div class="text-wrapper">
+              <h6 class="mbr-fonts-style item__service display-7">
+                <span class="mbr-bold">Profession:</span> {{user?.profession}}
+              </h6>
+            </div>
+            <div class="text-wrapper">
+              <h6 class="mbr-fonts-style item__service display-7">
+                <span class="mbr-bold">Email:</span> {{user?.email}}
+              </h6>
+            </div>
+            <div class="text-wrapper">
+              <h6 class="mbr-fonts-style item__service display-7">
+                <span class="mbr-bold">Telephone:</span> {{user?.telephone}}
+              </h6>
+            </div>
+            <div class="text-wrapper">
+              <h6 class="mbr-fonts-style item__service display-7">
+                <span class="mbr-bold">Présentation:</span> {{user?.presentation}}
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form cid-sVgKC58aHz" id="formbuilder-3o">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto mbr-form">
+        <!--Formbuilder Form-->
+        <form method="PUT" #profilEditForm="ngForm" ngNativeValidate class="mbr-form" id="myFormformbuilder3o">
+          <div class="dragArea mbr-row">
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <h4 class="mbr-fonts-style mbr-fonts-style display-5">Mettre à jour profil</h4>
+            </div>
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <hr>
+            </div>
+            <div data-for="form[data][0][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][0][1]-formbuilder-3o" class="form-control-label mbr-fonts-style display-7">Prénoms
+                &amp; Nom *</label>
+              <input [(ngModel)]="user.name"
+                amp-value="myStateformbuilder3o.formdata01formbuilder3o.stateformdata01formbuilder3o" type="text"
+                name="name" data-form-field="name" class="field-input display-7" required="required" value=""
+                id="form[data][0][1]-formbuilder-3o">
+            </div>
+            <div data-for="form[data][1][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][1][1]-formbuilder-3o"
+                class="form-control-label mbr-fonts-style display-7">Profession *</label>
+              <input [(ngModel)]="user.profession"
+                amp-value="myStateformbuilder3o.formdata11formbuilder3o.stateformdata11formbuilder3o" type="tel"
+                name="form[data][1][1]" data-form-field="profession" class="field-input display-7" required="required"
+                value="" id="form[data][1][1]-formbuilder-3o">
+            </div>
+            <div data-for="form[data][2][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+              <label for="form[data][2][1]-formbuilder-3o"
+                class="form-control-label mbr-fonts-style display-7">Téléphone *</label>
+              <input [(ngModel)]="user.telephone"
+                amp-value="myStateformbuilder3o.formdata21formbuilder3o.stateformdata21formbuilder3o" type="text"
+                name="form[data][2][1]" data-form-field="telephone" class="field-input display-7" required="required"
+                value="" id="form[data][2][1]-formbuilder-3o">
+            </div>
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][3][1]">
+              <label for="form[data][3][1]-formbuilder-3o"
+                class="form-control-label mbr-fonts-style display-7">Présentation
+                *</label>
+              <textarea id="description" [(ngModel)]="user.presentation" name="description" rows="5"
+                class="field-input display-7" cols="33">{{user.presentation}}</textarea>
+            </div>
+            <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12">
+              <button [disabled]="profilEditForm.invalid" (click)="updateProfil()" type="button"
+                class="btn btn-primary display-7">Mettre à jour</button>
+            </div>
+          </div>
+        </form>
+        <!--Formbuilder Form-->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form cid-sVgM6jqq0Q" id="formbuilder-3p">
+  <div class="container" *ngIf="user?.social == false" >
+    <div class="row">
+      <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+        <!--Formbuilder Form-->
+        <form #passwordChangeForm="ngForm" ngNativeValidate class="mbr-form" data-form-title="Form Name"
+          id="myFormformbuilder3p">
+          <div class="dragArea mbr-row">
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <h4 class="mbr-fonts-style mbr-fonts-style display-5">Changer mot de passe</h4>
+            </div>
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <hr>
+            </div>
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][1][1]">
+              <label for="form[data][1][1]-formbuilder-3p" class="form-control-label mbr-fonts-style display-7">Mot de
+                passe actuel</label>
+              <input [(ngModel)]="user.currentPassword"
+                amp-value="myStateformbuilder3p.formdata11formbuilder3p.stateformdata11formbuilder3p" type="password"
+                name="form[data][1][1]" placeholder="" data-form-field="current_password" class="field-input display-7"
+                required="required" value="" id="form[data][1][1]-formbuilder-3p">
+            </div>
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][2][1]">
+              <label for="form[data][2][1]-formbuilder-3p" class="form-control-label mbr-fonts-style display-7">Nouveau
+                mot de passe *</label>
+              <input [(ngModel)]="user.password"
+                amp-value="myStateformbuilder3p.formdata21formbuilder3p.stateformdata21formbuilder3p" type="password"
+                name="form[data][2][1]" data-form-field="password" class="field-input display-7" required="required"
+                value="" id="form[data][2][1]-formbuilder-3p">
+            </div>
+            <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][3][1]">
+              <label for="form[data][3][1]-formbuilder-3p"
+                class="form-control-label mbr-fonts-style display-7">Confirmation nouveau mot de passe</label>
+              <input [(ngModel)]="user.password_confirmation"
+                amp-value="myStateformbuilder3p.formdata31formbuilder3p.stateformdata31formbuilder3p" type="password"
+                name="form[data][3][1]" data-form-field="password_confirmation" class="field-input display-7"
+                required="required" value="" id="form[data][3][1]-formbuilder-3p">
+              <div style="color:red" class="field-input display-3"
+                *ngIf="user?.password_confirmation?.length>0 && user?.password_confirmation!=user?.password">
+                Les mots de passe ne correspondent pas
+              </div>
+            </div>
+            <div>
+
+            </div>
+            <div class="mbr-col-auto">
+              <button nz-button nzType="primary" [nzLoading]="isPasswordUpdate"
+                [disabled]="passwordChangeForm.invalid || user?.password_confirmation!=user?.password"
+                (click)="changePassword()" type="button">Mettre à jour</button>
+            </div>
+          </div>
+        </form>
+        <!--Formbuilder Form-->
+      </div>
+    </div>
+  </div>
+</section>

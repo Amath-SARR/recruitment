@@ -1,0 +1,162 @@
+<section class="ampHeader19 cid-sUCXSsXbnP" id="ampHeader19-e">
+  <div class="container">
+    <div class="mbr-row">
+      <div class="mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-6 mbr-flex text__block align-left">
+        <div class="title__block mbr-m-auto">
+          <p class="subtext rounded__10 mbr-fonts-style mbr-black display-4"> {{campagne?.categorie_emploi?.name}}</p>
+          <h3 class="mbr-section-title mbr-bold mbr-fonts-style mbr-black display-2">{{campagne?.titre}}</h3>
+          <span class="divider"></span>
+        </div>
+      </div>
+      <div class="image mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-6">
+        <img src="{{campagne?.entreprise?.logo_path}}" alt="image" style="object-fit: contain;" layout="responsive">
+      </div>
+      <div class="mbr-col-sm-12" *ngIf="!campagne.active">
+        <nz-alert nzType="error" nzMessage="La campagne est déja clôturée..."></nz-alert>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ampContacts5 cid-sV3Gdj4FpS" id="ampContacts5-2d" *ngIf="campagne.candidature">
+  <!-- Block parameters controls (Blue "Gear" panel) -->
+
+  <div class="container">
+    <div class="title">
+      <h3 class="mbr-section-subtitle mbr-bold mbr-fonts-style display-7"><span>HI, {{ campagne.candidature?.user?.name
+          }}</span></h3>
+      <h4 class="mbr-section-title mbr-fonts-style display-2">Votre dossier de candidature est
+        à l'état : &nbsp;<strong>{{ campagne.candidature?.current_state?.state?.nom }}</strong> depuis le
+        {{campagne.candidature?.current_state?.created_at|date:'dd/MM/yyyy'}} </h4>
+    </div>
+
+    <div class="contacts-block mbr-flex">
+      <div class="contacts__text">
+        <!-- <p class="mbr-text contacts-text mbr-fonts-style display-7">Votre texte de motivations ici....<br></p> -->
+        <div class="align-left mbr-section-btn">
+          <button class="btn btn-md btn-primary display-4" (click)="sendCandidatureRapport()" nz-button [nzLoading]="isRapportSending">
+            M'envoyer le rapport
+          </button>
+        </div>
+      </div>
+
+      <div class="contacts-box">
+        <div class="adress__box">
+          <p class="mbr-text mbr-fonts-style contacts contacts__adress display-7"><strong>{{
+              campagne.candidature?.created_at|date:'dd/MM/yyyy' }}</strong></p>
+          <p class="contacts-span mbr-text mbr-fonts-style contacts__adr mbr-regular display-7"> Date de soumission du
+            dossier</p>
+        </div>
+        <div class="contacts__callback mbr-flex">
+          <div class="contacts__callback-left">
+            <p class="mbr-text mbr-fonts-style contacts display-7"><strong>Vu sur internet</strong><br></p>
+            <p class="mbr-regular contacts-span mbr-text mbr-fonts-style display-7">{{campagne.candidature?.source}}<br>
+            </p>
+          </div>
+          <div class="contacts__callback-right">
+            <p class="mbr-text mbr-fonts-style contacts display-7">
+              <strong>
+                <a target="_blank" href="{{campagne.candidature?.cv_path}}">Lien CV</a>
+              </strong>
+            </p>
+            <p class="mbr-regular contacts-span mbr-text mbr-fonts-style display-7">Votre CV</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ampInfo4 cid-sUN6Q3rbQj" id="ampInfo4-i">
+
+  <!-- Block parameters controls (Blue "Gear" panel) -->
+  <div class="container">
+    <div class="mbr-row">
+      <div class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-5">
+        <div class="box">
+          <div class="iconfont-wrapper">
+            <span class="amp-iconfont fa fa-calendar"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path
+                  d="M192 1664h288v-288h-288v288zm352 0h320v-288h-320v288zm-352-352h288v-320h-288v320zm352 0h320v-320h-320v320zm-352-384h288v-288h-288v288zm736 736h320v-288h-320v288zm-384-736h320v-288h-320v288zm768 736h288v-288h-288v288zm-384-352h320v-320h-320v320zm-352-864v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm736 864h288v-320h-288v320zm-384-384h320v-288h-320v288zm384 0h288v-288h-288v288zm32-480v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm384-64v1280q0 52-38 90t-90 38h-1408q-52 0-90-38t-38-90v-1280q0-52 38-90t90-38h128v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h384v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h128q52 0 90 38t38 90z">
+                </path>
+              </svg></span>
+          </div>
+          <p class="mbr-text custom-section-text mbr-white mbr-fonts-style mbr-text-i display-4">clôture prévue pour le
+            {{campagne?.dateCloture | date:'dd/MM/yyyy' }}</p>
+        </div>
+        <p class="custom-section-text-title mbr-bold6 mbr-white mbr-fonts-style display-5">
+          {{campagne?.entreprise?.name}}</p>
+      </div>
+      <div class="mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-7">
+        <div class="mbr-flex flex-wrap custom-column">
+          <div class="box">
+            <div class="iconfont-wrapper">
+              <span class="amp-iconfont fa fa-map-marker"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                  <path
+                    d="M1152 640q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm256 0q0 109-33 179l-364 774q-16 33-47.5 52t-67.5 19-67.5-19-46.5-52l-365-774q-33-70-33-179 0-212 150-362t362-150 362 150 150 362z">
+                  </path>
+                </svg></span>
+            </div>
+            <p class="mbr-text custom-section-text custom-gap mbr-white mbr-fonts-style mbr-text-i display-4">
+              {{campagne?.entreprise?.name}}</p>
+            <br>
+            <div class="iconfont-wrapper">
+              <span class="amp-iconfont fa fa-location-arrow"><svg width="100%" height="100%" viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                  <path
+                    d="M1593 349l-640 1280q-17 35-57 35-5 0-15-2-22-5-35.5-22.5t-13.5-39.5v-576h-576q-22 0-39.5-13.5t-22.5-35.5 4-42 29-30l1280-640q13-7 29-7 27 0 45 19 15 14 18.5 34.5t-6.5 39.5z">
+                  </path>
+                </svg></span>
+            </div>
+            <p class="mbr-text custom-section-text mbr-white mbr-fonts-style mbr-text-i display-4">{{campagne?.lieu}}
+            </p>
+          </div>
+          <div class="mbr-section-btn" *ngIf="!campagne.candidature">
+            <a (click)="redirectCandidatureForm()" class="btn btn-sm btn-white display-7">Postuler ma
+              candidature</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ampContent28 cid-sUD0s4alG5" id="ampContent28-g">
+
+  <!--Block parameters controls (Blue "Gear" panel) -->
+
+  <div class="container">
+    <div class="title">
+
+      <h3 class="mbr-section-title mbr-fonts-style mbr-semibold display-5">Descriptions</h3>
+
+      <p class="mbr-text text mbr-gray mbr-fonts-style mbr-pt-2 display-7" [innerHTML]="campagne?.description"></p>
+
+    </div>
+  </div>
+</section>
+
+<app-campagne-similaire-list *ngIf="campagne?.id" [campagne_id]="campagne?.id"></app-campagne-similaire-list>
+
+<section class="social-share cid-sVlAV2W2Fp" id="social-share-3v">
+  <div class="container align-center">
+    <div class="title-wrap">
+      <h1 class="mbr-section-title mbr-fonts-style display-2">
+        Partager sur</h1>
+      <div class="underline">
+        <div class="line"></div>
+      </div>
+    </div>
+    <amp-social-share type="email" width="3rem" height="3rem"></amp-social-share>
+    <amp-social-share type="facebook" data-param-app_id="254325784911610" width="3rem" height="3rem">
+    </amp-social-share>
+    <amp-social-share type="gplus" width="3rem" height="3rem"></amp-social-share>
+    <amp-social-share type="linkedin" width="3rem" height="3rem"></amp-social-share>
+    <amp-social-share type="pinterest" data-param-media="https://ampbyexample.com/img/amp.jpg" width="3rem"
+      height="3rem"></amp-social-share>
+    <amp-social-share type="tumblr" width="3rem" height="3rem"></amp-social-share>
+    <amp-social-share type="twitter" width="3rem" height="3rem"></amp-social-share>
+  </div>
+</section>

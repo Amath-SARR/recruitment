@@ -1,0 +1,130 @@
+<section class="ampHeader27 cid-sVgDewpQaE" id="ampHeader27-3j">
+    <div class="container">
+        <div class="mbr-row align-center mbr-jc-c">
+            <div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-12">
+                <h2 class="mbr-section-subtitle mbr-black mbr-semibold mbr-fonts-style display-2">
+                    Les statuts de campagne</h2>
+                <div class="mbr-section-btn mbr-pt-4"><a class="btn btn-black display-4" (click)="showFormAjout()">Ajouter un statut</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="form cid-sVgyVjg0fe" id="formbuilder-3g">
+    <div class="container" *ngIf="isVisibleFormAjout">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                <!--Formbuilder Form-->
+                <form #newStateForm="ngForm" method="POST" class="mbr-form" data-form-title="newStatutForm" id="myFormformbuilder3g">
+                    <div class="dragArea mbr-row">
+                        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                            <h4 class="mbr-fonts-style mbr-fonts-style mbr-fonts-style mbr-fonts-style display-5">Nouveau statut</h4>
+                        </div>
+                        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                            <hr>
+                        </div>
+                        <div data-for="form[data][0][1]" class="mbr-col-lg-4 mbr-col-md-4 mbr-col-sm-12 field">
+                            <label for="form[data][0][1]-formbuilder-3g" class="form-control-label mbr-fonts-style display-7">Nom du statut *</label>
+                            <input type="hidden" name="form[data][0][0]" value="nom" id="form[data][0][0]-formbuilder-3g" data-form-field="">
+                            <input amp-value="myStateformbuilder3g.formdata01formbuilder3g.stateformdata01formbuilder3g" on="change:AMP.setState({myStateformbuilder3g:{formdata01formbuilder3g:{valueformdata01formbuilder3g: event.value}}})" type="text" name="form[data][0][1]" data-form-field="nom"
+                                required="required" class="field-input display-7" value="" id="form[data][0][1]-formbuilder-3g" [(ngModel)]="stateModel.nom">
+                        </div>
+                        <div data-for="form[data][1][1]" class="mbr-col-lg-4 mbr-col-md-4 mbr-col-sm-12 field" style="">
+                            <label for="form[data][1][1]-formbuilder-3g" class="form-control-label mbr-fonts-style display-7">Type*</label>
+                            <input type="hidden" name="form[data][1][0]" value="type" id="form[data][1][0]-formbuilder-3g" data-form-field="">
+                            <select name="form[data][1][1]" data-form-field="type" class="form-select field-input display-7" id="form[data][1][1]-formbuilder-3g" [(ngModel)]="stateModel.type">
+                              <option value="initial">initial</option>
+                              <option value="intermediaire">intermediaire</option>
+                              <option value="final">final</option>
+                            </select>
+                        </div>
+                        <div data-for="form[data][0][1]" class="mbr-col-lg-4 mbr-col-md-4 mbr-col-sm-12 field">
+                            <label for="form[data][0][1]-formbuilder-3g" class="form-control-label mbr-fonts-style display-7">Code du statut *</label>
+                            <input type="hidden" name="form[data][0][0]" value="code" id="form[data][0][0]-formbuilder-3g" data-form-field="">
+                            <input amp-value="myStateformbuilder3g.formdata01formbuilder3g.stateformdata01formbuilder3g" on="change:AMP.setState({myStateformbuilder3g:{formdata01formbuilder3g:{valueformdata01formbuilder3g: event.value}}})" type="text" name="form[data][0][1]" data-form-field="code"
+                                required="required" class="field-input display-7" value="" id="form[data][0][1]-formbuilder-3g" [(ngModel)]="stateModel.code">
+                        </div>
+                        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][2][1]">
+                            <label for="form[data][2][1]-formbuilder-3g" class="form-control-label mbr-fonts-style display-7">Description *</label>
+                            <input type="hidden" name="form[data][2][0]" value="description" id="form[data][2][0]-formbuilder-3g" data-form-field="">
+                            <textarea on="change:AMP.setState({myStateformbuilder3g:{formdata21formbuilder3g:{valueformdata21formbuilder3g: event.value}}})" defaulttext="myStateformbuilder3g.formdata21formbuilder3g.stateformdata21formbuilder3g" name="form[data][2][1]" placeholder="Textarea"
+                                data-form-field="description" class="field-input display-7" required="required" id="form[data][2][1]-formbuilder-3g" [(ngModel)]="stateModel.description"></textarea>
+                        </div>
+                        <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12">
+                            <button nz-button [nzLoading]="isCreating" [disabled]="newStateForm.invalid" type="button" class="btn btn-primary display-7" (click)="save()">Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
+                <!--Formbuilder Form-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features9 cid-sVbzi4tM3O" id="features9-3e">
+    <div class="container">
+        <div class="mbr-row mbr-justify-content-center">
+            <div class="mbr-col-md-12">
+                <nz-card style="width:100%;" nzTitle="Rechercher un statut">
+                    <div class="mbr-row">
+                        <div class="mbr-col-lg-6 mbr-col-sm-12">
+                            <input nz-input placeholder="Rechercher..." [(ngModel)]="searchField" />
+                        </div>
+                    </div>
+                </nz-card>
+            </div>
+            <div class="mbr-col-lg-6 mbr-col-md-10" *ngFor="let state of states|filterBy: filterFields: searchField">
+                <nz-badge [nzColor]="getBadgeColor(state)" [nzText]="state.type"></nz-badge>
+                <div class="wrap">
+                    <div class="ico-wrap">
+                        <span class="iconfont-wrapper">
+                              <span class="amp-iconfont mobi-mbri-flag mobi-mbri"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="100%" height="100%"><path d="M22 0H3v24h2V14h17l-3.5-7L22 0zm-3.2 12H5V2h13.8l-2.5 5 2.5 5z"></path></svg></span>
+                        </span>
+                        <br>
+                        {{state.code}}
+                    </div>
+                    <div class="text-wrap vcenter">
+                        <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">{{state?.nom}}</h2>
+                        <p class="mbr-fonts-style text1 mbr-text mbr-black display-6">{{state?.description}}</p>
+                        <button nz-button [nzType]="'primary'" (click)="showModal(state)" nzwarning><span>Modifier</span></button>&nbsp;&nbsp;
+                        <button nz-button nzType="primary" nzDanger (click)="delete(state)">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mbr-col-lg-12">
+                <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions" (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)" [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total"
+                    [nzPageSize]="itemsPerPage"></nz-pagination>
+            </div>
+        </div>
+    </div>
+</section>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Modifier un statut" (nzOnCancel)="handleCancel()" (nzOnOk)="update(stateNouveau)" nzOkText="Enregistrer">
+    <ng-container *nzModalContent>
+        <form method="POST" class="mbr-form" action-xhr="https://formoid.net/api/amp-form/push" data-form-title="newStatutForm" id="myFormformbuilder3g" on="submit:myFormformbuilder3g.clear;submit-success:AMP.setState({myStateformbuilder3g:{formdata01formbuilder3g:{stateformdata01formbuilder3g: '', valueformdata01formbuilder3g: ''}, formdata21formbuilder3g:{stateformdata21formbuilder3g: '', valueformdata21formbuilder3g: ''}}});submit-error:AMP.setState({myStateformbuilder3g:{formdata01formbuilder3g:{stateformdata01formbuilder3g: myStateformbuilder3g.formdata01formbuilder3g.valueformdata01formbuilder3g}, formdata21formbuilder3g:{stateformdata21formbuilder3g: myStateformbuilder3g.formdata21formbuilder3g.valueformdata21formbuilder3g}}})">
+            <div class="dragArea mbr-row">
+                <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                    <hr>
+                </div>
+                <div data-for="form[data][0][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+                    <label for="form[data][0][1]-formbuilder-3g" class="form-control-label mbr-fonts-style display-7">Nom du statut *</label>
+                    <input type="hidden" name="form[data][0][0]" value="nom" id="form[data][0][0]-formbuilder-3g" data-form-field="">
+                    <input amp-value="myStateformbuilder3g.formdata01formbuilder3g.stateformdata01formbuilder3g" on="change:AMP.setState({myStateformbuilder3g:{formdata01formbuilder3g:{valueformdata01formbuilder3g: event.value}}})" type="text" name="form[data][0][1]" data-form-field="nom"
+                        required="required" class="field-input display-7" value="nom" id="form[data][0][1]-formbuilder-3g" [(ngModel)]="stateNouveau.nom">
+                </div>
+                <div data-for="form[data][0][1]" class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12 field">
+                    <label for="form[data][0][1]-formbuilder-3g" class="form-control-label mbr-fonts-style display-7">Code du statut *</label>
+                    <input type="hidden" name="form[data][0][0]" value="code" id="form[data][0][0]-formbuilder-3g" data-form-field="">
+                    <input amp-value="myStateformbuilder3g.formdata01formbuilder3g.stateformdata01formbuilder3g" on="change:AMP.setState({myStateformbuilder3g:{formdata01formbuilder3g:{valueformdata01formbuilder3g: event.value}}})" type="text" name="form[data][1][1]" data-form-field="code"
+                        required="required" class="field-input display-7" value="code" id="form[data][0][1]-formbuilder-3g" [(ngModel)]="stateNouveau.code">
+                </div>
+                <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][2][1]">
+                    <label for="form[data][2][1]-formbuilder-3g" class="form-control-label mbr-fonts-style display-7">Description *</label>
+                    <input type="hidden" name="form[data][2][0]" value="description" id="form[data][2][0]-formbuilder-3g" data-form-field="">
+                    <textarea on="change:AMP.setState({myStateformbuilder3g:{formdata21formbuilder3g:{valueformdata21formbuilder3g: event.value}}})" defaulttext="myStateformbuilder3g.formdata21formbuilder3g.stateformdata21formbuilder3g" name="form[data][2][1]" placeholder="Textarea"
+                        data-form-field="description" class="field-input display-7" required="required" id="form[data][2][1]-formbuilder-3g" [(ngModel)]="stateNouveau.description"></textarea>
+                </div>
+            </div>
+        </form>
+    </ng-container>
+</nz-modal>

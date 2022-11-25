@@ -1,0 +1,101 @@
+<section class="ampHeader7 cid-sUZt69MJRa" id="ampHeader7-15">
+
+  <div class="mbr-overlay"></div>
+  <div class="container">
+    <div class="mbr-row mbr-black mbr-jc-c main-row mbr-row-reverse">
+      <div class="title-wrap mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-6 mbr-flex">
+        <div class="title-block mbr-col-sm-12 mbr-col-md-12">
+          <h1 class="mbr-section-title mbr-fonts-style mbr-bold display-2">Bienvenue sur Recruitment</h1>
+
+          <p class="mbr-text mbr-fonts-style mbr-pt-2 display-7">Si vous ne disposez pas encore de compte, vous pourrez
+            créer un compte en cliquant sur le bouton ci-dessous.</p>
+          <div class="mbr-section-btn mbr-pt-4"><a class="btn-primary btn display-7" routerLink="/register">Ouvrir un
+              compte</a></div>
+        </div>
+      </div>
+      <div class="form-wrap mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-6 mbr-flex">
+        <div class="form-block mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-12 mbr-m-auto align-center">
+          <div class="mbr-overlay"></div>
+          <h3 class="form-title mbr-fonts-style mbr-black mbr-pb-2 display-2">Se connecter</h3>
+          <h4 class="mbr-fonts-style form-subtitle mbr-black mbr-pb-4 display-7">Entrez vos identifiants de connexion
+            pour vous authentifier</h4>
+          <div data-form-type="formoid">
+            <!--Formbuilder Form-->
+            <form #loginForm="ngForm" method="POST" class="mbr-form" data-form-title="loginForm"
+              id="myFormampHeader715">
+              <div class="dragArea mbr-form-row">
+                <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][0][1]">
+                  <label for="form[data][0][1]-ampHeader7-15"
+                    class="form-control-label mbr-fonts-style display-7">Email</label>
+                  <input type="hidden" name="form[data][0][0]" value="email" id="form[data][0][0]-ampHeader7-15"
+                    data-form-field="">
+                  <input type="email" name="form[data][0][1]" placeholder="test@email.com" data-form-field="email"
+                    class="field-input display-7" required="required" [(ngModel)]="loginModel.email" value=""
+                    id="form[data][0][1]-ampHeader7-15">
+                </div>
+                <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][1][1]">
+                  <label for="form[data][1][1]-ampHeader7-15" class="form-control-label mbr-fonts-style display-7">Mot
+                    de passe</label>
+                  <input type="hidden" name="form[data][1][0]" value="password" id="form[data][1][0]-ampHeader7-15"
+                    data-form-field="">
+                  <input [(ngModel)]="loginModel.password"
+                    type="password" name="form[data][1][1]" placeholder="Password" data-form-field="password"
+                    class="field-input display-7" required="required" id="form[data][1][1]-ampHeader7-15">
+                </div>
+                <div class="mbr-col-md-12 mbr-col-sm-12 mbr-section-btn field">
+                  <button nz-button [nzLoading]="isLoging" [disabled]="loginForm.invalid" (click)="login()" type="button" class="btn btn-primary display-7">Se connecter</button>
+                </div>
+
+              </div>
+            </form>
+            <!--Formbuilder Form-->
+            <div class="mbr-col mbr-col-sm-12 mbr-section-btn align-center field">
+              <button type="submit" (click)="loginWithGoogle()"
+                class="btn btn-form btn-primary display-7">Google</button>
+              <button type="submit" (click)="loginWithFacebook()"
+                class="btn btn-form btn-primary display-7">Facebook</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ampForm11 cid-sVmjbwk8Hy" id="ampForm11-48">
+
+  <!--Block parameters controls (Blue "Gear" panel) -->
+
+  <div class="container">
+    <div class="mbr-row mbr-jc-c">
+      <div class="title-wrap mbr-col-lg-9 mbr-col-md-12 mbr-col-sm-12 mbr-flex mbr-column mbr-jc-c">
+        <h3 class="mbr-section-title mbr-fonts-style mbr-light mbr-gray align-center display-5">Récupération du mot de
+          passe
+        </h3>
+        <p class="mbr-text mbr-fonts-style mbr-pt-2 align-center mbr-regular display-7">Vous avez oublié votre mot de
+          passe ? Merci de renseigner votre email ici afin de recevoir un lien de réinitialisation.</p>
+      </div>
+      <div class="form-wrap mbr-col-lg-7 mbr-col-md-10 mbr-col-sm-12 mbr-flex mbr-column mbr-jc-c">
+        <div class="form-block" data-form-type="formoid">
+          <!--Formbuilder Form-->
+          <form method="POST" class="mbr-form i-amphtml-form" #recoverForm="ngForm" data-form-title="recoverForm" id=""
+            novalidate="">
+            <div class="dragArea mbr-row">
+              <div data-for="form[data][0][1]" class="mbr-col mbr-col-sm-12 field">
+                <input value="myStateampForm1148.formdata01ampForm1148.stateformdata01ampForm1148" type="email"
+                  name="form[data][0][1]" placeholder="E-mail Address" data-form-field="email" required="required"
+                  class="field-input display-7" [(ngModel)]="user.email" value="" id="form[data][0][1]-ampForm11-48">
+              </div>
+              <div class="mbr-col mbr-col-sm-12 mbr-section-btn align-center field">
+                <button nz-button [nzLoading]="sendingLink" type="submit" (click)="resetPassword()"
+                  class="btn btn-form btn-primary display-7">Envoyer</button>
+              </div>
+            </div>
+          </form>
+          <!--Formbuilder Form-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

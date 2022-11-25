@@ -1,0 +1,62 @@
+<section *ngIf="isConfirmMessageVisible" class="ampHeader33 cid-sVmQW5NZ54" id="ampHeader33-4g">
+  <div class="container">
+    <div class="mbr-row align-left">
+      <div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-8">
+        <h1 class="mbr-section-title mbr-fonts-style mbr-black mbr-bold display-5">Confirmation création compte</h1>
+        <p class="mbr-text mbr-gray mbr-fonts-style mbr-pt-4 display-7"></p>
+        <p>Votre compte est créé avec succès, un email de confirmation est envoyé à l'adresse email
+          <strong>{{currentUser?.email}}</strong>. Merci de le consulter pour confirmer votre compte. Si vous ne le
+          retrouvez pas dans la boite de réception, merci de vérifier dans les <strong>SPAMs</strong> ou encore dans les
+          <strong>notifications</strong>.
+        </p>
+        <hr>
+        <p>Si vous vous êtes trompés de mail, merci de corriger votre email en cliquant ici :</p>
+        <p></p>
+
+        <div class="mbr-section-btn mbr-pt-4">
+          <a class="btn btn-black-outline display-7" (click)="showChangePasswordSectionVisible()">Corriger l'adresse email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form4 cid-sVmTxb4IQt" id="form4-4h" *ngIf="isChangePasswordSectionVisible">
+  <div class="container">
+    <h2 class="align-center mbr-bold mbr-primary mbr-fonts-style display-5">
+      Changement d'email</h2>
+    <p class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5"><em>Vous vous êtes trompé d'email ?
+        Choisissez une adresse email valide pour la remplacer...</em></p>
+    <div class="mbr-row mbr-justify-content-center">
+      <div class="mbr-col-lg-8  mbr-col-md-10 " data-form-type="formoid">
+        <!--Formbuilder Form-->
+        <form method="post" class="mbr-form"
+          data-form-title="emailChangeForm" id="myFormform44h" #changeEmailForm="ngForm">
+          <div class="mbr-row">
+            <div submit-success="" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <template data-form-alert="" type="amp-mustache"></template>
+            </div>
+            <div submit-error="" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+              <template data-form-alert="" type="amp-mustache">Failed! </template>
+            </div>
+          </div>
+          <div class="dragArea mbr-row">
+            <div data-for="form[data][0][1]" class="mbr-col mbr-col-md-12 field">
+              <input type="hidden" name="form[data][0][0]" value="email" id="form[data][0][0]-form4-4h"
+                data-form-field="">
+              <input required="required" [(ngModel)]="newEmail" amp-value="myStateform44h.formdata01form44h.stateformdata01form44h"
+                on="change:AMP.setState({myStateform44h:{formdata01form44h:{valueformdata01form44h: event.value}}})"
+                type="email" name="form[data][0][1]" placeholder="Votre email" data-form-field="email"
+                class="input field-input display-5" value="" id="form[data][0][1]-form4-4h">
+            </div>
+            <div class="mbr-col-auto mbr-col-md-12 mbr-section-btn align-center field">
+              <button (click)="changeEmail()" [disabled]="changeEmailForm.invalid" type="button" nz-button [nzLoading]="isEmailChanging"
+                class="btn btn-primary display-6">Soumettre</button>
+              </div>
+          </div>
+        </form>
+        <!--Formbuilder Form-->
+      </div>
+    </div>
+  </div>
+</section>

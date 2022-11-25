@@ -1,0 +1,56 @@
+<!--Show all collaborateur-->
+<section class="ampCounters6 cid-sVlGjhRWJQ" id="ampCounters6-43">
+  <div class="mbr-row">
+    <div class="mbr-col-lg-12">
+      <div class="mbr-row">
+        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+          <h5 class="mbr-fonts-style mbr-fonts-style mbr-fonts-style mbr-fonts-style mbr-fonts-style display-5">
+            Liste des collaborateurs</h5>
+        </div>
+        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+          <div class="mbr-row">
+            <div class="mbr-col-md-12">
+              <nz-card style="width:100%;">
+                <div class="mbr-row">
+                  <div class="mbr-col-lg-6 mbr-col-sm-12">
+                    <input nz-input placeholder="Rechercher un utilisateur..." [(ngModel)]="searchField" />
+                  </div>
+                </div>
+              </nz-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mbr-col-lg-12">
+      <div class="container">
+        <div class="card" *ngFor="let collaborateur of collaborateurs|filterBy:filterFields:searchField">
+          <div class="card-header">
+            <img [src]="collaborateur.user?.photo_path" alt="rover" />
+          </div>
+          <div class="card-body">
+            <span class="tag tag-teal">{{collaborateur.user?.profession}}</span>
+            <h4>
+              Présentation
+            </h4>
+            <p [innerHTML]="collaborateur.user?.presentation|truncate:50:'...'">
+            </p>
+            <div class="user">
+              <img [src]="collaborateur.user?.photo_path" alt="user" />
+              <div class="user-info">
+                <h5>{{collaborateur.user?.name}}</h5>
+                <small>Depuis le {{collaborateur?.created_at|date:'dd/MM/yyyy'}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mbr-col-lg-12" style="margin-bottom: 10px; margin-top: 10px; padding: 10px;">
+      <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+        (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)"
+        [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+      </nz-pagination>
+    </div>
+  </div>
+</section>

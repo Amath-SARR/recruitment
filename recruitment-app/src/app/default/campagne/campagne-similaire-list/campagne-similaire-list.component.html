@@ -1,0 +1,47 @@
+<section class="ampTeam10 cid-sVlxtXGeKu mbr-pb-2" id="ampTeam10-3u">
+  <div class="title mbr-pb-3 align-center">
+    <h2 class="mbr-section-subtitle mbr-regular mbr-fonts-style mbr-pb-1 mbr-pt-1">Campagnes similaires
+    </h2>
+  </div>
+
+  <div class="container">
+    <ng-container *ngFor="let campagne of campagnes">
+      <div class="card" (click)="navigateToCampagneShow(campagne?.uid)" style="cursor: pointer;">
+        <div class="card-header">
+          <img [src]="campagne?.photo_path" alt=" campagne {{campagne?.titre}}" style="object-fit: contain;"
+            layout="responsive" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">{{campagne?.categorie_emploi?.name}}</span>
+          <h5>
+            <b>Entreprise:</b> {{campagne?.entreprise?.name}}
+          </h5>
+          <h5>
+            <b>Titre campagne:</b> {{campagne?.titre}}
+          </h5>
+          <h5>
+            <b>Lieu campagne:</b> {{campagne?.lieu}}
+          </h5>
+          <p [innerHTML]="campagne?.description"></p>
+          <div style="padding: 0px; min-height: -100px;">
+            Du <span style="background-color: #607D8B; color: white; border-radius: 3px; padding: 2px 3px">
+              {{campagne?.dateLancement | date: 'dd/MM/yyyy'}}
+            </span>&nbsp;au
+            <span style="background-color: #455A64; color: white; border-radius: 3px; padding: 2px 3px">
+              {{campagne?.dateCloture | date:'dd/MM/yyyy'}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="mbr-col-lg-12">
+      <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+        (nzPageSizeChange)="changePageSize($event,campagne_id) " nzShowSizeChanger
+        (nzPageIndexChange)="changePagination($event)" [nzPageIndex]="paginationData.current_page"
+        [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+      </nz-pagination>
+    </div>
+
+  </div>
+</section>

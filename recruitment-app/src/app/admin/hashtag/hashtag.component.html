@@ -1,0 +1,88 @@
+<section class="ampHeader27 cid-sVgFOC4p6Y" id="ampHeader27-3m">
+  <div class="container">
+    <div class="mbr-row align-center mbr-jc-c">
+      <div class="title-block mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-12">
+        <h2 class="mbr-section-subtitle mbr-black mbr-semibold mbr-fonts-style display-5">
+          Liste des hashtags qui seront associés aux appels à candidature...</h2>
+        <div class="mbr-section-btn mbr-pt-4"><a class="btn btn-black display-4" (click)="isVisible()">Ajouter des
+            hashtags</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-container *ngIf="visible">
+  <section class="form cid-sVgGk57DIW" id="formbuilder-3n">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+          <form method="POST" class="mbr-form" data-form-title="hashtagForm" id="myFormformbuilder3n">
+            <br>
+            <div class="dragArea mbr-row">
+              <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                <h4 class="mbr-fonts-style mbr-fonts-style display-5">Ajout de hashtags</h4>
+              </div>
+              <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                <hr>
+              </div>
+              <div data-for="form[data][0][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
+                <br>
+                <mat-form-field class="example-chip-list" appearance="fill">
+                  <mat-chip-list #chipList aria-label="Fruit selection">
+                    <mat-chip *ngFor="let hashtag of hashtagItems" (removed)="removeHashtag(hashtag)">
+                      {{hashtag.nom}}
+                      <button matChipRemove>
+                        <i nz-icon nzType="close"></i>
+                      </button>
+                    </mat-chip>
+                    <input placeholder="Ajouter un hashtag en appuyant sur la touche entrer..."
+                      [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="true" (matChipInputTokenEnd)="addHashtag($event)">
+                  </mat-chip-list>
+                </mat-form-field>
+              </div>
+              <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12">
+                <button type="submit" class="btn btn-primary float-right display-7" style="cursor : pointer;"
+                  (click)="save()">Enregistrer tous les hashtags</button>
+              </div>
+            </div>
+          </form>
+          <br>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
+
+<section class="ampContent41 cid-sVbokj2iqZ" id="ampContent41-38">
+  <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(238, 237, 237);"></div>
+  <div class="container">
+    <div class="mbr-row mbr-jc-c">
+      <ng-container *ngFor="let hashtages of hashtags | chunkBy: 10">
+        <div class="mbr-col-lg-3 mbr-col-md-6 mbr-col-sm-12 md-pb">
+          <div class="mbr-row items mbr-white">
+            <ng-container *ngFor="let hashtag of hashtages">
+              <div class="list-item mbr-pt-2 mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12" nz-row>
+                <h5 class="mbr-fonts-style mbr-gray list1 display-7" nz-col nzSpan="11">
+                  <ngx-edit-inline [value]="hashtag.nom" [type]="'text'" [debounceTime]="7500" [selectText]="true"
+                    [placeholder]="'Entrez un hashtag'" keydown.entrer=" findAll()" [saveOption]="'onedit'"
+                    (onValueChanged)="update($event, hashtag)">
+                  </ngx-edit-inline>
+                </h5>
+                <button nz-button nzType="primary" nzShape="circle" nzDanger (click)="remove(hashtag)" nz-col
+                  nzSpan="2">
+                  <i nz-icon nzType="delete"></i>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+      <div class="mbr-col-lg-12">
+        <nz-pagination [nzResponsive]="true" [nzPageSizeOptions]="pageSizeOptions"
+          (nzPageSizeChange)="changePageSize($event)" nzShowSizeChanger (nzPageIndexChange)="changePagination($event)"
+          [nzPageIndex]="paginationData.current_page" [nzTotal]="paginationData.total" [nzPageSize]="itemsPerPage">
+        </nz-pagination>
+      </div>
+    </div>
+  </div>
+</section>
